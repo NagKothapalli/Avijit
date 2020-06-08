@@ -13,6 +13,7 @@ namespace PageObjectModel.AppUtils
 {
     public class DriverSetUp
     {
+        //This is a class which will give the user specific web driver object
         IWebDriver driver;
         public IWebDriver BringDriver()
         {
