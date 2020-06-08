@@ -26,5 +26,10 @@ namespace PageObjectModel
         {
             //Hello
         }
+        [TestMethod]
+        public void TestMethod5()
+        {
+            //Hello
+        }
     }
 }
