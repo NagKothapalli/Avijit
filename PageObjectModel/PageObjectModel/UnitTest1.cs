@@ -11,10 +11,6 @@ namespace PageObjectModel
         {
             //Hello
         }
-        [TestMethod]
-        public void TestMethod2()
-        {
-            //Hello
-        }
+        
     }
 }
