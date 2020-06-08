@@ -8,5 +8,6 @@ namespace PageObjectModel.GeneralUtils
 {
     public class ReadJsonData
     {
+
     }
 }
