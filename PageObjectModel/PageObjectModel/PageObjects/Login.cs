@@ -17,10 +17,18 @@ namespace PageObjectModel.PageObjects
         {
             this.driver = driver;
         }
-        public void LaunchApplication()
+        public Boolean LaunchApplication()
         {
             Debug.WriteLine("RC : Launch Application");
             driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["URL"]);
+            if(driver.Title.Equals("Gmail")) //Assert
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public void LoginToApplication()
         {
