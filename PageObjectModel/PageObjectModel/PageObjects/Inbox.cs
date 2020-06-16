@@ -15,21 +15,35 @@ namespace PageObjectModel.PageObjects
         {
             this.driver = driver;
         }
-        public void Compose()
+        public Boolean Compose()
         {
             Debug.WriteLine("RC : Compose");
+            return true;
         }
-        public void Send()
+        public Boolean Send()
         {
             Debug.WriteLine("RC : Send");
+            return true;
         }
-        public void Open()
+        public Boolean Open()
         {
             Debug.WriteLine("RC : Open Mail");
+            return true;
         }
-        public void Reply()
+        public Boolean Reply()
         {
             Debug.WriteLine("RC : Reply to Mail");
+            return true;
+        }
+        public Boolean Forward()
+        {
+            Debug.WriteLine("RC : Forward Mail");
+            return true;
+        }
+        public Boolean Delete()
+        {
+            Debug.WriteLine("RC : Delete Mail");
+            return true;
         }
     }
 }

@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using PageObjectModel.AppUtils;
 using PageObjectModel.PageObjects;
+using PageObjectModel.TestBatches;
 using RelevantCodes.ExtentReports;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace PageObjectModel.TestScenarios
         public IWebDriver driver;
         Login login;
         Inbox inbox;
-        ExtentReports extent;
+        ExtentTest child;
         public TestCases()
         {
             driver = new DriverSetUp().BringDriver();
@@ -30,41 +31,64 @@ namespace PageObjectModel.TestScenarios
         [TestMethod] //Test Case / Test Scenario
         public void ComposeAndSendAnEmail()
         {
-            extent = new ExtentReports(@"D:\WorkSpace\CsharpGit\PageObjectModel\PageObjectModel\Reports\POMReports.html");
-            ExtentTest mySmoke = extent.StartTest("Smoke Test", "This for my Build Validation");
+            child = TestSuites.extent.StartTest("Compose And Send An Email");
+            TestSuites.parentTest.AppendChild(child);
             Debug.WriteLine("Test Case : Compose and Send An Email");
             result = login.LaunchApplication();
-            if (result == true)
-                mySmoke.Log(LogStatus.Pass, "Launch - is successfull");
-            else
-                mySmoke.Log(LogStatus.Fail, "Launch - is Failed");
-            login.LoginToApplication();
-            mySmoke.Log(LogStatus.Pass, "Login - is successfull");
-            inbox.Compose();
-            mySmoke.Log(LogStatus.Pass, "Compose - is successfull");
-            inbox.Send();
-            mySmoke.Log(LogStatus.Pass, "Send - is successfull");
-            login.LogoutFromApplication();
-            mySmoke.Log(LogStatus.Pass, "Logout - is successfull");
-            extent.EndTest(mySmoke);
-            
+            logReport(result,child,"Launch");
+            result = login.LoginToApplication();
+            logReport(result, child, "Login");
+            result = inbox.Compose();
+            logReport(result, child, "Compose");
+            result = inbox.Send();
+            logReport(result, child, "Send");
+            result = login.LogoutFromApplication();
+            logReport(result, child, "Logout");
+            //extent.EndTest(mySmoke);
+
         }
+       
         [TestMethod]
         public void ReplyToAnEmail()
         {
+            child = TestSuites.extent.StartTest("Reply To An Email");
+            TestSuites.parentTest.AppendChild(child);
             Debug.WriteLine("Test Case :Reply To An Email");
-            login.LaunchApplication();
-            login.LoginToApplication();
-            inbox.Open();
-            inbox.Reply();
-            login.LogoutFromApplication();
+            logReport(login.LaunchApplication(), child, "Launch");
+            logReport(login.LoginToApplication(), child, "Login");
+            logReport(inbox.Open(), child, "Open");
+            logReport(inbox.Reply(), child, "Reply");
+            logReport(login.LogoutFromApplication(), child, "Logout");
         }
-        [TestCleanup]
-        public void postEvents()
+        public void ForwardAnEmail()
         {
-            Debug.WriteLine("Post Events");
-            extent.Flush();
-            extent.Close();
+            child = TestSuites.extent.StartTest("Forward An Email");
+            TestSuites.parentTest.AppendChild(child);
+            Debug.WriteLine("Test Case :Forward An Email");
+            logReport(login.LaunchApplication(), child, "Launch");
+            logReport(login.LoginToApplication(), child, "Login");
+            logReport(inbox.Open(), child, "Open");
+            logReport(inbox.Forward(), child, "Forward");
+            logReport(login.LogoutFromApplication(), child, "Logout");
         }
+        public void DeleteAnEmail()
+        {
+            child = TestSuites.extent.StartTest("Delete An Email");
+            TestSuites.parentTest.AppendChild(child);
+            Debug.WriteLine("Test Case :Delete An Email");
+            logReport(login.LaunchApplication(), child, "Launch");
+            logReport(login.LoginToApplication(), child, "Login");
+            logReport(inbox.Open(), child, "Open");
+            logReport(inbox.Delete(), child, "Delete");
+            logReport(login.LogoutFromApplication(), child, "Logout");
+        }
+        public void logReport(Boolean result, ExtentTest test, String stepName)
+        {
+            if (result == true)
+                test.Log(LogStatus.Pass, stepName + "- is successfull");
+            else
+                test.Log(LogStatus.Fail, stepName + "- is Failed");
+        }
+
     }
 }

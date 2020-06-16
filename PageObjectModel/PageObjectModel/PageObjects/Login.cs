@@ -30,21 +30,23 @@ namespace PageObjectModel.PageObjects
                 return false;
             }
         }
-        public void LoginToApplication()
+        public Boolean LoginToApplication()
         {
             Debug.WriteLine("RC : Login To Application");
-            IWebElement userName = driver.FindElement(By.XPath("//input[@name='identifier']"));
-            userName.SendKeys(ConfigurationManager.AppSettings["UserName"]);
-            IWebElement nxtObj = driver.FindElement(By.XPath("//span[text()='Next']"));
-            nxtObj.Click();
-            Thread.Sleep(3000);
-            driver.FindElement(By.XPath("//input[@name='password']")).SendKeys(ConfigurationManager.AppSettings["PassWord"]);
-            driver.FindElement(By.XPath("//span[text()='Next']")).Click();
+            //IWebElement userName = driver.FindElement(By.XPath("//input[@name='identifier']"));
+            //userName.SendKeys(ConfigurationManager.AppSettings["UserName"]);
+            //IWebElement nxtObj = driver.FindElement(By.XPath("//span[text()='Next']"));
+            //nxtObj.Click();
+            //Thread.Sleep(3000);
+            //driver.FindElement(By.XPath("//input[@name='password']")).SendKeys(ConfigurationManager.AppSettings["PassWord"]);
+            //driver.FindElement(By.XPath("//span[text()='Next']")).Click();
+            return true;
         }
-        public void LogoutFromApplication()
+        public Boolean LogoutFromApplication()
         {
             Debug.WriteLine("RC : Logout From Application");
-            driver.Quit();
+            //driver.Quit();
+            return true;
         }
     }
 }
