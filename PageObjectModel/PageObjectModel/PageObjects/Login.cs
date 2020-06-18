@@ -21,7 +21,7 @@ namespace PageObjectModel.PageObjects
         {
             Debug.WriteLine("RC : Launch Application");
             driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["URL"]);
-            if(driver.Title.Equals("Gmail")) //Assert
+            if(driver.Title.Contains("Gmail")) //Assert
             {
                 return true;
             }

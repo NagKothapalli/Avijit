@@ -43,7 +43,7 @@ namespace PageObjectModel.PageObjects
         public Boolean Delete()
         {
             Debug.WriteLine("RC : Delete Mail");
-            return true;
+            return false;
         }
     }
 }

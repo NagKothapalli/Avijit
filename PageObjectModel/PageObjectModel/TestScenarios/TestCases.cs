@@ -20,6 +20,8 @@ namespace PageObjectModel.TestScenarios
         Login login;
         Inbox inbox;
         ExtentTest child;
+        public static ExtentReports extent;
+        public static ExtentTest parentTest;
         public TestCases()
         {
             driver = new DriverSetUp().BringDriver();
@@ -27,12 +29,17 @@ namespace PageObjectModel.TestScenarios
             inbox = new Inbox(driver);
         }
         Boolean result;
+        //[TestInitialize]
+        //public void IntializeReports()
+        //{
+        //   extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\IndividualReports" + new Random().Next(9999) + ".html");
+        //}
         //Inbox - 
         [TestMethod] //Test Case / Test Scenario
         public void ComposeAndSendAnEmail()
         {
-            child = TestSuites.extent.StartTest("Compose And Send An Email");
-            TestSuites.parentTest.AppendChild(child);
+            //child = extent.StartTest("Compose And Send An Email");
+            child = CreateChild("Compose And Send An Email");
             Debug.WriteLine("Test Case : Compose and Send An Email");
             result = login.LaunchApplication();
             logReport(result,child,"Launch");
@@ -47,12 +54,12 @@ namespace PageObjectModel.TestScenarios
             //extent.EndTest(mySmoke);
 
         }
-       
         [TestMethod]
         public void ReplyToAnEmail()
         {
-            child = TestSuites.extent.StartTest("Reply To An Email");
-            TestSuites.parentTest.AppendChild(child);
+            //child = TestSuites.extent.StartTest("Reply To An Email");
+            //TestSuites.parentTest.AppendChild(child);
+            child = CreateChild("Reply To An Email");
             Debug.WriteLine("Test Case :Reply To An Email");
             logReport(login.LaunchApplication(), child, "Launch");
             logReport(login.LoginToApplication(), child, "Login");
@@ -60,10 +67,12 @@ namespace PageObjectModel.TestScenarios
             logReport(inbox.Reply(), child, "Reply");
             logReport(login.LogoutFromApplication(), child, "Logout");
         }
+        [TestMethod]
         public void ForwardAnEmail()
         {
-            child = TestSuites.extent.StartTest("Forward An Email");
-            TestSuites.parentTest.AppendChild(child);
+            //child = TestSuites.extent.StartTest("Forward An Email");
+            //TestSuites.parentTest.AppendChild(child);
+            child = CreateChild("Forward An Email");
             Debug.WriteLine("Test Case :Forward An Email");
             logReport(login.LaunchApplication(), child, "Launch");
             logReport(login.LoginToApplication(), child, "Login");
@@ -71,10 +80,12 @@ namespace PageObjectModel.TestScenarios
             logReport(inbox.Forward(), child, "Forward");
             logReport(login.LogoutFromApplication(), child, "Logout");
         }
+        [TestMethod]
         public void DeleteAnEmail()
         {
-            child = TestSuites.extent.StartTest("Delete An Email");
-            TestSuites.parentTest.AppendChild(child);
+            //child = TestSuites.extent.StartTest("Delete An Email");
+            //TestSuites.parentTest.AppendChild(child);
+            child = CreateChild("Delete An Email");
             Debug.WriteLine("Test Case :Delete An Email");
             logReport(login.LaunchApplication(), child, "Launch");
             logReport(login.LoginToApplication(), child, "Login");
@@ -82,13 +93,36 @@ namespace PageObjectModel.TestScenarios
             logReport(inbox.Delete(), child, "Delete");
             logReport(login.LogoutFromApplication(), child, "Logout");
         }
+        public ExtentTest CreateChild(string childName)
+        {
+            try{
+                child = TestSuites.extent.StartTest(childName);
+                TestSuites.parentTest.AppendChild(child);
+            }catch (Exception e){
+                extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\"+childName+"-" + new Random().Next(9999) + ".html");
+                child = extent.StartTest(childName);
+            }
+            return child;
+        }
         public void logReport(Boolean result, ExtentTest test, String stepName)
         {
             if (result == true)
                 test.Log(LogStatus.Pass, stepName + "- is successfull");
             else
-                test.Log(LogStatus.Fail, stepName + "- is Failed");
+            {
+                //imageFile = CaptureScreenShot();
+                test.Log(LogStatus.Fail, test.AddScreenCapture(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\ScreenShots\\Home.png") + stepName + " - is Failed");
+            }
+                
         }
-
+        [TestCleanup]
+        public void postEvents()
+        {
+            Debug.WriteLine("Post Events");
+            //driver.Quit();
+            extent.EndTest(child);
+            extent.Flush();
+            extent.Close();
+        }
     }
 }

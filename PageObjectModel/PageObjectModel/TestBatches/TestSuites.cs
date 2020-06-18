@@ -15,16 +15,26 @@ namespace PageObjectModel.TestBatches
     {
         public static ExtentReports extent;
         public static ExtentTest parentTest;
+        string root;
         public TestSuites()
         {
-            extent = new ExtentReports(@"D:\WorkSpace\CsharpGit\PageObjectModel\PageObjectModel\Reports\POMReports.html");
-            
+            //root = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
+            //int ranNum = new Random().Next(9999);
+            //extent = new ExtentReports(root+"\\Reports\\POMReports"+ranNum+".html");
+            //extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\POMReports" + new Random().Next(9999) + ".html");
+
+        }
+
+        public void CreateParentTest(string parentName,string description)
+        {
+            extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\"+ parentName+"-" + new Random().Next(9999) + ".html");
+            parentTest = extent.StartTest(parentName, description);
         }
         //Smoke ->Constructor -extent object ->In to Smoke - parentTest object
        [TestMethod]
        public void SmokeSuite()
        {
-            parentTest = extent.StartTest("Smoke Test", "This for my Build Validation");
+            CreateParentTest("SmokeSuite", "This for my Build Validation");
             Debug.WriteLine("Test Suite : SMOKE");
             ComposeAndSendAnEmail();
             ReplyToAnEmail();
@@ -32,7 +42,8 @@ namespace PageObjectModel.TestBatches
         [TestMethod]
        public void RegressionSuite()
        {
-            parentTest = extent.StartTest("Regression Test", "This for my Full Cycle Testing");
+            //parentTest = extent.StartTest("Regression Test", "This is for my Full Cycle Testing");
+            CreateParentTest("RegressionSuite", "This is for my Full Cycle Testing");
             Debug.WriteLine("Test Suite : SMOKE");
             ComposeAndSendAnEmail();
             ReplyToAnEmail();
