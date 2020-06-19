@@ -38,19 +38,27 @@ namespace PageObjectModel.TestScenarios
         [TestMethod] //Test Case / Test Scenario
         public void ComposeAndSendAnEmail()
         {
+            try
+            {
+                child = CreateChild("Compose And Send An Email");
+                Debug.WriteLine("Test Case : Compose and Send An Email");
+                result = login.LaunchApplication();
+                logReport(result, child, "Launch", "User is able to Launch");
+                result = login.LoginToApplication();
+                logReport(result, child, "Login","User is able to Login");
+                result = inbox.Compose();
+                logReport(result, child, "Compose");
+                result = inbox.Send();
+                logReport(result, child, "Send");
+                result = login.LogoutFromApplication();
+                logReport(result, child, "Logout");
+            }
+            catch(Exception e)
+            {
+                child.Log(LogStatus.Fail, e);
+            }
             //child = extent.StartTest("Compose And Send An Email");
-            child = CreateChild("Compose And Send An Email");
-            Debug.WriteLine("Test Case : Compose and Send An Email");
-            result = login.LaunchApplication();
-            logReport(result,child,"Launch");
-            result = login.LoginToApplication();
-            logReport(result, child, "Login");
-            result = inbox.Compose();
-            logReport(result, child, "Compose");
-            result = inbox.Send();
-            logReport(result, child, "Send");
-            result = login.LogoutFromApplication();
-            logReport(result, child, "Logout");
+            
             //extent.EndTest(mySmoke);
 
         }
@@ -107,14 +115,34 @@ namespace PageObjectModel.TestScenarios
         public void logReport(Boolean result, ExtentTest test, String stepName)
         {
             if (result == true)
-                test.Log(LogStatus.Pass, stepName + "- is successfull");
+                test.Log(LogStatus.Pass, stepName , "- is successfull");
             else
             {
                 //imageFile = CaptureScreenShot();
-                test.Log(LogStatus.Fail, test.AddScreenCapture(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\ScreenShots\\Home.png") + stepName + " - is Failed");
+                test.Log(LogStatus.Fail, test.AddScreenCapture(TakeErrorScreenShot(stepName)) + stepName + " - is Failed");
             }
                 
         }
+        public void logReport(Boolean result, ExtentTest test, String stepName,String details)
+        {
+            if (result == true)
+                test.Log(LogStatus.Pass, stepName, details);
+            else
+            {
+                //imageFile = CaptureScreenShot();
+                test.Log(LogStatus.Fail, test.AddScreenCapture(TakeErrorScreenShot(stepName)) + stepName + " - is Failed");
+            }
+
+        }
+        string screenshotfilepath;
+        public String TakeErrorScreenShot(String fname)
+        {
+            Screenshot scrFile = ((ITakesScreenshot)driver).GetScreenshot();
+            string screenshotfilepath = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\ScreenShots\\" + fname + "-" + new Random().Next(9999);
+            scrFile.SaveAsFile(screenshotfilepath);
+            return screenshotfilepath;
+        }
+
         [TestCleanup]
         public void postEvents()
         {
