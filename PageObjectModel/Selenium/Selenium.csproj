@@ -205,8 +205,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InheritanceByExtends\GmailWithMsTest.cs" />
     <Compile Include="InheritanceByExtends\MyExecutionReport.cs" />
     <Compile Include="InheritanceByExtends\Gmail.cs" />
+    <Compile Include="InheritanceByExtends\ReusableComponents.cs" />
+    <Compile Include="InheritanceByExtends\TestCases.cs" />
+    <Compile Include="InheritanceByExtends\TestSuites.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
