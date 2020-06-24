@@ -211,6 +211,9 @@
     <Compile Include="InheritanceByExtends\ReusableComponents.cs" />
     <Compile Include="InheritanceByExtends\TestCases.cs" />
     <Compile Include="InheritanceByExtends\TestSuites.cs" />
+    <Compile Include="InheritanceByObject\Rcomponents.cs" />
+    <Compile Include="InheritanceByObject\TestBatches.cs" />
+    <Compile Include="InheritanceByObject\TestScenarios.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
