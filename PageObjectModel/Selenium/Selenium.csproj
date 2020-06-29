@@ -205,6 +205,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\IArithematicOperations.cs" />
+    <Compile Include="Calculator\CommercialCalc.cs" />
+    <Compile Include="Calculator\MiniCalc.cs" />
+    <Compile Include="Calculator\ScientificCalc.cs" />
+    <Compile Include="GeneralStore\CustomerBill.cs" />
     <Compile Include="InheritanceByExtends\GmailWithMsTest.cs" />
     <Compile Include="InheritanceByExtends\MyExecutionReport.cs" />
     <Compile Include="InheritanceByExtends\Gmail.cs" />
