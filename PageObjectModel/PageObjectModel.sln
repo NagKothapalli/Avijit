@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObjectModel", "PageObje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium", "Selenium\Selenium.csproj", "{C760B8A3-161E-4BE7-AD81-640958F90B55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTFrameWork", "DDTFrameWork\DDTFrameWork.csproj", "{687F684D-BBFA-4B1F-95F5-17BB4B3F8E9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C760B8A3-161E-4BE7-AD81-640958F90B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C760B8A3-161E-4BE7-AD81-640958F90B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C760B8A3-161E-4BE7-AD81-640958F90B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{687F684D-BBFA-4B1F-95F5-17BB4B3F8E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687F684D-BBFA-4B1F-95F5-17BB4B3F8E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687F684D-BBFA-4B1F-95F5-17BB4B3F8E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687F684D-BBFA-4B1F-95F5-17BB4B3F8E9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,67 @@
+{
+  "attachment": {
+    "doctor": {
+      "firstName": "Test",
+      "lastName": "Doctor",
+      "licenseNumber": "2342342345",
+      "npid": "2342342340",
+      "taxId": "234234234",
+      "specialtyCodeId": 11,
+      "providerName": "momo yaaa"
+    },
+    "facility": {
+      "facilityId": "REMMED01",
+      "practiceAddress1": "1313 The Fast Lane",
+      "practiceAddress2": "Suite 250",
+      "practiceCity": "Buford",
+      "practiceName": "Johnsons Baby Powder Healthcare Division",
+      "practicePhone": "6787252450",
+      "practiceStateAbbrv": "GA",
+      "practiceZip": "30519"
+    },
+    "payor": {
+      "groupNumber": "",
+      "insuredsFirstName": "ADR",
+      "insuredsId": "1234546554",
+      "insuredsLastName": "Test2",
+      "masterId": 517000,
+      "relationship": 1
+    },
+    "procedures": [
+      {
+        "cdtCode": "1",
+        "procedureDate": "2017-03-02T15:31:41.675Z",
+        "procedureId": 1
+      }
+    ],
+    "patient": {
+      "medicalRecordNumber": "",
+      "firstName": "ADR",
+      "lastName": "Test2",
+      "dateOfBirth": "1977-03-02T15:31:41.675Z"
+    },
+    "dmsInternalReferenceNumber": "228759a0-544e-4c62-1240-207940029abc",
+    "dosFrom": "2017-03-02T15:31:41.675Z",
+    "dosThru": "2017-03-02T15:31:41.675Z",
+    "message": "",
+    "narrative": "this is the narrative",
+    "payorRefNum": "1234567890123",
+    "customerRefNum": "",
+    "predeterminationFlag": false,
+    "caseNum": "7654564",
+    "esMdUseCase": "adr"
+  },
+  "attachmentDetails": {
+    "stEndPoint": "https://steasubmitterdeveastus.blob.core.windows.net/ct-easubmitter-attachments/SampleReferral.pdf",
+    "tempAttachmentId": "",
+    "metadatauploadStatus": "success",
+    "fileUploadStatus": "success"
+  },
+  "documentDetails": {
+    "vendorImageId": "005",
+    "fileName": "SampleReferral.pdf",
+    "imageDate": "08142020",
+    "imageCode": "1000",
+    "vendorTransactionId": "105"
+  }
+}
