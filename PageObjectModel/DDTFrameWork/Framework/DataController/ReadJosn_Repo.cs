@@ -22,11 +22,11 @@ namespace DDTFrameWork.Framework
         {
             return root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
         }
-        public RootObject GetSelector(string objectName)
-        {
-            root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
-            return root;
-        }
+        //public RootObject GetSelector(string objectName)
+        //{
+        //    root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
+        //    return root;
+        //}
         public class RootObject
         {
             public LoginPage loginPage { get; set; }

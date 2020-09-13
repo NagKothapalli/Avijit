@@ -15,7 +15,7 @@ namespace DDTFrameWork.App.PageObjects
     {
         public ReadJosn_Data jsonData;
         public ReadJosn_Repo.LoginPage loginRepo;
-        Dev devData;
+        public Dev devData;
         IWebDriver driver ;
         public Login()
         {
@@ -28,7 +28,6 @@ namespace DDTFrameWork.App.PageObjects
         }
         public void LoginToApplication()
         {
-            
             TextBoxControl(loginRepo.UserName).Set(devData.UserName);
             ButtonControl(loginRepo.NextButton).Click();
             Thread.Sleep(2000);
@@ -37,7 +36,7 @@ namespace DDTFrameWork.App.PageObjects
         }
         public void LogoutFromApplication()
         {
-            ButtonControl(loginRepo.LogoutButton).Click();
+            //ButtonControl(loginRepo.LogoutButton).Click();
         }
     }
 }

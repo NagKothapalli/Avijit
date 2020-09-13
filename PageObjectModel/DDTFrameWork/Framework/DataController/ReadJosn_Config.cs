@@ -10,35 +10,34 @@ namespace DDTFrameWork.Framework
 {
     public class ReadJosn_Config
     {
-        public string selector;
-        public string data;
-        public string GetSelector(string objectName)
+        public string JsonFilePath;
+        public RootObject root;
+        public ReadJosn_Config()
         {
-            return selector;
+            JsonFilePath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", @"\") + "AppData\\App_TestConfig.json";
         }
-
-        public string GetTestData(string page,string key)
+        public RootObject GetTestConfig()
         {
-            return data;
+            return root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
         }
-
-        public void ReadPayload()
-        {
-            string JsonFilePath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", @"\") + "AppData\\App_TestData.json";
-            Console.WriteLine(JsonFilePath);
-            RootObject root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
-            root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
-        }
+       
         public class RootObject
         {
-            public Dev dev { get; set; }
-            //public QA qa { get; set; }
+            public AppRunSettings appRunSttings { get; set; }
+            public WebRunSettings webRunSttings { get; set; }
         }
-        public class Dev
+        public class AppRunSettings
         {
-            public string stEndPoint { get; set; }
-            public string tempAttachmentId { get; set; }
+            public string DeviceType { get; set; }
+            public string IPAddress { get; set; }
             public string metadatauploadStatus { get; set; }
+            public string fileUploadStatus { get; set; }
+        }
+        public class WebRunSettings
+        {
+            public string ExecutionType { get; set; }
+            public string Browser { get; set; }
+            public string OS { get; set; }
             public string fileUploadStatus { get; set; }
         }
     }

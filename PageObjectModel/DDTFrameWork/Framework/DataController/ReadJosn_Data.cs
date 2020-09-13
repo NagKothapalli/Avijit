@@ -28,11 +28,11 @@ namespace DDTFrameWork.Framework
             root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
             return root;
         }
-        public RootObject GetTestData(string env)
-        {
-            root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
-            return root;
-        }
+        //public RootObject GetTestData(string env)
+        //{
+        //    root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
+        //    return root;
+        //}
         public class RootObject
         {
             public Dev dev { get; set; }

@@ -1,10 +1,11 @@
 ﻿{
-  "AppTestConfig": {
-    "RunSttings": {
-      "URL": "//input[@name='identifier']",
-      "DataBaseServer": "//div[@class='VfPpkd-RLmnJb']",
-      "DBUserName": "//input[@name='password']",
-      "DBPassWord": "//input[@name='password']"
-    }
+  "AppRunSttings": {
+    "DeviceType": "Local",
+    "IPAddress": "Chrome"    
+  },
+  "WebRunSttings": {
+    "ExecutionType": "Local",
+    "Browser": "Chrome",
+    "OS": "Win 7"
   }
 }

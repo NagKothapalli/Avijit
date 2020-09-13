@@ -8,18 +8,18 @@ namespace DDTFrameWork.Framework.ObjectManager
 {
     public class TextBoxControl:BaseControl
     {
-        public string selector;
-        public TextBoxControl(string selector)
+        public string xpath;
+        public TextBoxControl(string xpath)
         {
-            this.selector = selector;
+            this.xpath = xpath;
         }
         public void Set(string value)
         {
-            GetWebObject(selector).SendKeys(value);
+            GetWebObject(xpath).SendKeys(value);
         }
         public void Clear(string value)
         {
-            GetWebObject(selector).Clear();
+            GetWebObject(xpath).Clear();
         }
     }
 }

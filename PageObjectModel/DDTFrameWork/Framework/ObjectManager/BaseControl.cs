@@ -33,6 +33,7 @@ namespace DDTFrameWork.Framework.ObjectManager
         }
         public IWebElement GetWebObject(string xpath)
         {
+            //IsActive
             return webDriver.FindElement(By.XPath(xpath));
         }
     }

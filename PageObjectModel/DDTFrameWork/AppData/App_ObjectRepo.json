@@ -1,8 +1,14 @@
 ﻿{
-    "LoginPage": {
-      "UserName": "//input[@name='identifier']",
-      "NextButton": "//div[@class='VfPpkd-RLmnJb']",
-      "PassWord": "//input[@name='password']",
-      "LogoutButton": "//input[@name='password']"
-    }
+  "LoginPage": {
+    "UserName": "//input[@name='identifier']",
+    "NextButton": "//div[@class='VfPpkd-RLmnJb']",
+    "PassWord": "//input[@name='password']",
+    "LogoutButton": "//input[@name='password']"
+  },
+  "InboxPage": {
+    "UserName": "//input[@name='identifier']",
+    "NextButton": "//div[@class='VfPpkd-RLmnJb']",
+    "PassWord": "//input[@name='password']",
+    "LogoutButton": "//input[@name='password']"
+  }
 }
