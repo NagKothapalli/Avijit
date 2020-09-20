@@ -5,6 +5,7 @@
   },
   "WebRunSttings": {
     "ExecutionType": "Local",
+    "Environment" : "Dev",
     "Browser": "Chrome",
     "OS": "Win 7"
   }

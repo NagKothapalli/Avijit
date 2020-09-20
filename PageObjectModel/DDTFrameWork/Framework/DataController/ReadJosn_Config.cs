@@ -38,7 +38,7 @@ namespace DDTFrameWork.Framework
             public string ExecutionType { get; set; }
             public string Browser { get; set; }
             public string OS { get; set; }
-            public string fileUploadStatus { get; set; }
+            public string Environment { get; set; }
         }
     }
 }

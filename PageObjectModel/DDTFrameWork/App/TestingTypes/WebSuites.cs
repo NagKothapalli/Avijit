@@ -29,5 +29,10 @@ namespace DDTFrameWork.App.TestingTypes
         {
             testCases.GmailLogin();
         }
+        [TestMethod]
+        public void RegressionSuite()
+        {
+            testCases.GmailLogin();
+        }
     }
 }

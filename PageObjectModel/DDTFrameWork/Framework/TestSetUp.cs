@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace DDTFrameWork.Framework
             }
             else
             {
-                webDriver = new ChromeDriver();
+                webDriver = new FirefoxDriver();
             }
             
             return webDriver;
