@@ -8,20 +8,21 @@ using System.Threading.Tasks;
 
 namespace DDTFrameWork.Framework
 {
-    public class ReadJosn_Repo
+    public class Read_ObjectRepo
     {
         public string selector;
         public string data;
         public RootObject root;
         public string JsonFilePath;
-        public ReadJosn_Repo()
+        public Read_ObjectRepo()
         {
             JsonFilePath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", @"\") + "AppData\\App_ObjectRepo.json";
+            root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
         }
-        public RootObject GetSelector()
-        {
-            return root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
-        }
+        //public RootObject GetSelector()
+        //{
+        //    return root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
+        //}
         //public RootObject GetSelector(string objectName)
         //{
         //    root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));

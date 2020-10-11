@@ -8,18 +8,19 @@ using System.Threading.Tasks;
 
 namespace DDTFrameWork.Framework
 {
-    public class ReadJosn_Config
+    public class Read_ConfigData
     {
         public string JsonFilePath;
         public RootObject root;
-        public ReadJosn_Config()
+        public Read_ConfigData()
         {
             JsonFilePath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", @"\") + "AppData\\App_TestConfig.json";
+            root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
         }
-        public RootObject GetTestConfig()
-        {
-            return root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
-        }
+        //public RootObject GetTestConfig()
+        //{
+        //    return root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
+        //}
        
         public class RootObject
         {

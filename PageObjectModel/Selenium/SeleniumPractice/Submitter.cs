@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Selenium.SeleniumPractice
 {
     [TestClass]
-    public class EASubmitter
+    public class Submitter
     {
         [TestMethod]
         public void PayloadReplace(){
@@ -41,6 +41,11 @@ namespace Selenium.SeleniumPractice
             File.WriteAllText(JsonFilePath, output);
             root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
             Console.WriteLine(root.attachment.dmsInternalReferenceNumber);
+            if((output) != null)
+            {
+                
+            }
+            Assert.AreNotEqual(null, output);
         }
 
         public class RootObject

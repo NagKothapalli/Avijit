@@ -23,5 +23,7 @@ namespace DDTFrameWork.App.TestScenarios
             login.LoginToApplication();
             login.LogoutFromApplication();
         }
+
+        
     }
 }

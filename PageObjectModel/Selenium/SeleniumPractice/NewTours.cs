@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using RestSharp;
 using RestSharp.Authenticators;
@@ -18,13 +19,22 @@ namespace Selenium.SeleniumPractice
     [TestClass]
     public class NewTours
     {
-        IWebDriver driver;
-        //IWebDriver driver = new ChromeDriver();
+        //IWebDriver driver;
+        IWebDriver driver = new ChromeDriver();
         public void LaunchApplication()
         {
             Debug.WriteLine("RC : Launch Application");
             driver.Navigate().GoToUrl("https://gmail.com");
+            PageFactory.InitElements(driver, this);
+
         }
+        public class Constants
+        {
+            public const string username = "abc";
+        }
+        [FindsBy(How = How.XPath, Using = Constants.username)]
+        
+        public IWebElement ele { get; set; }
         //id,name,class,cssSelector,linkText,partialLinkText,tagname,xpath
         [TestMethod]
         public void NewUserRegistration() //Test Case
