@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PageObjectModel
 {
-    [TestClass]
+   // [TestClass]
     public class UnitTest1
     {
         [TestMethod]

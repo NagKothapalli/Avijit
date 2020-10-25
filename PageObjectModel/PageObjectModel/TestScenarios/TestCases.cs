@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace PageObjectModel.TestScenarios
 {   
-    [TestClass]
+   // [TestClass]
     public class TestCases
     {
-        public IWebDriver driver;
+        public IWebDriver driver; //null
         Login login;
         Inbox inbox;
         ExtentTest child;
@@ -27,6 +27,17 @@ namespace PageObjectModel.TestScenarios
             driver = new DriverSetUp().BringDriver();
             login = new Login(driver);
             inbox = new Inbox(driver);
+        }
+
+        [TestMethod]
+        public void MyTestCaseOne()
+        {
+            login.LaunchApplication();
+            //login.LaunchApplication("https://gmail.com");
+            login.LoginToApplication();
+            inbox.Compose();
+            inbox.Send();
+            login.LogoutFromApplication();
         }
         Boolean result;
         //[TestInitialize]

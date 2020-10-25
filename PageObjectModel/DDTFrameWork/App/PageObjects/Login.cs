@@ -14,7 +14,7 @@ namespace DDTFrameWork.App.PageObjects
 {
     public class Login : ObjManager
     {
-        public ReadJosn_Data jsonData;
+        public Read jsonData;
         public ReadJosn_Repo.LoginPage loginRepo;
         public Dev devData;
         IWebDriver driver ;

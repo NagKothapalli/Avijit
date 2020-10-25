@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PageObjectModel.TestBatches
 {
-    [TestClass]
+  // [TestClass]
     public class TestSuites:TestCases
     {
         public static ExtentReports extent;
@@ -32,7 +32,7 @@ namespace PageObjectModel.TestBatches
         }
         //Smoke ->Constructor -extent object ->In to Smoke - parentTest object
        [TestMethod]
-       public void SmokeSuite()
+       public void SmokeSuite() //BVT
        {
             CreateParentTest("SmokeSuite", "This for my Build Validation");
             Debug.WriteLine("Test Suite : SMOKE");

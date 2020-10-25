@@ -30,6 +30,19 @@ namespace PageObjectModel.PageObjects
                 return false;
             }
         }
+        public Boolean LaunchApplication(string url)
+        {
+            Debug.WriteLine("RC : Launch Application");
+            driver.Navigate().GoToUrl(url);
+            if (driver.Title.Contains("Gmail")) //Assert
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public Boolean LoginToApplication()
         {
             Debug.WriteLine("RC : Login To Application");
@@ -40,6 +53,7 @@ namespace PageObjectModel.PageObjects
             //Thread.Sleep(3000);
             //driver.FindElement(By.XPath("//input[@name='password']")).SendKeys(ConfigurationManager.AppSettings["PassWord"]);
             //driver.FindElement(By.XPath("//span[text()='Next']")).Click();
+            //userName.GetAttribute("title").Equals("LoginSuccessfull")  then ture
             return true;
         }
         public Boolean LogoutFromApplication()

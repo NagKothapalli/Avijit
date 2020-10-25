@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using RestSharp;
@@ -20,7 +21,13 @@ namespace Selenium.SeleniumPractice
     public class NewTours
     {
         //IWebDriver driver;
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver;
+        Actions actions;
+        public NewTours()
+        {
+            driver = new ChromeDriver();
+            actions = new Actions(driver);
+        }
         public void LaunchApplication()
         {
             Debug.WriteLine("RC : Launch Application");
@@ -28,6 +35,19 @@ namespace Selenium.SeleniumPractice
             PageFactory.InitElements(driver, this);
 
         }
+        [TestMethod]
+        public void UploadFileTest()
+        {
+            string baseUrl = "http://demo.guru99.com/test/upload/";
+            driver.Navigate().GoToUrl(baseUrl);
+            IWebElement uploadElement = driver.FindElement(By.XPath("//input[@id='uploadfile_0']"));
+            uploadElement.SendKeys("C:\\newhtml.html");
+            // check the "I accept the terms of service" check box
+            driver.FindElement(By.Id("terms")).Click();
+            // click the "UploadFile" button
+            driver.FindElement(By.Name("send")).Click();
+        }
+        
         public class Constants
         {
             public const string username = "abc";

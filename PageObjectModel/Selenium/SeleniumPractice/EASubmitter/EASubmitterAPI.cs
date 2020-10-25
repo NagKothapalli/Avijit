@@ -83,56 +83,7 @@ namespace Selenium.SeleniumPractice.EASubmitter
         {
             response = DownloadAttachmentMetadata(ConfigurationManager.AppSettings["MetaDataAPI"] , "9ee749cd-2c9c-4f1a-8758-3f0277e409d2");
         }
-        //***********************Reusable Components *****************
-        public IRestResponse DownloadAttachmentDocument(string endpoint,string dmsrefnum)
-        {
-            client = CreateRestClient(endpoint + dmsrefnum);
-            response = RestRequest_GET(client);
-            //Console.WriteLine(response.Content);
-            return response;
-        }
-        public IRestResponse DownloadAttachmentMetadata(string endpoint, string dmsrefnum)
-        {
-            client = CreateRestClient(endpoint + dmsrefnum);
-            response = RestRequest_GET(client);
-            //Console.WriteLine(response.Content);
-            return response;
-        }
-        public IRestResponse PostEASubmitterToVyne(string endpoint, string JsonFilePath)
-        {
-            client = CreateRestClient(endpoint);
-            return RestRequest_POST(client, JsonFilePath);
-        }
-        public string AssertEASubmitterResponseAndGetDMSRefNum(IRestResponse response)
-        {
-            Assert.AreEqual("OK", response.StatusCode.ToString().Trim());
-            return response.Content.ToString().Substring(1, response.Content.ToString().Length - 2);
-        }
-        public void WaitForSomeTimeInSeconds(int time)
-        {
-            Thread.Sleep(1000 * time);
-        }
-        public void AssertMetaDataFile(RootObject MetadataBefore, IRestResponse response)
-        {
-            IList<RootObject> MetadataAfter = JsonConvert.DeserializeObject<IList<RootObject>>(response.Content);
-            Assert.AreNotEqual(null, MetadataAfter[0].attachment.dmsInternalReferenceNumber);
-            Console.WriteLine("dmsInternalReferenceNumber=" + MetadataAfter[0].attachment.dmsInternalReferenceNumber);
-            Assert.AreNotEqual(null, MetadataAfter[0].attachmentDetails.StEndPoint);
-            Console.WriteLine("StEndpoint=" + MetadataAfter[0].attachmentDetails.StEndPoint);
-            Assert.AreEqual("ca", MetadataAfter[0].attachmentDetails.SenderApplication);
-            Assert.AreEqual("Success", MetadataAfter[0].attachmentDetails.MetadataUploadStatus);
-            Assert.AreEqual("Success", MetadataAfter[0].attachmentDetails.FileUploadStatus);
-            Assert.AreEqual(MetadataBefore.model.documentDetails.fileName, MetadataAfter[0].documentDetails.fileName);
-            Assert.AreEqual("200", MetadataAfter[0].responseDetails.ResponseCode);
-            Assert.AreNotEqual(null, MetadataAfter[0].responseDetails.ResponseMessage);
-            Assert.AreEqual(MetadataBefore.model.attachment.payor.masterId, MetadataAfter[0].attachment.payor.masterId);
-        }
-        public void AssertPDFByteStream(string PdfUploaded, IRestResponse response)
-        {
-            string pdfbefore = PdfUploaded.Substring(1, PdfUploaded.Length - 1);
-            string pdfafter = response.Content.ToString().Substring(2, response.Content.ToString().Length - 3);
-            Assert.AreEqual(pdfbefore, pdfafter);
-        }
+        
         //***************Old TestCases *******************
         //Userstory-testcasenum-Title
         [TestMethod]
