@@ -38,6 +38,8 @@ namespace Selenium.SeleniumPractice
         [TestMethod]
         public void UploadFileTest()
         {
+            //System.Diagnostics.Process.Start(@"C:\WorkSpace\Java\GoogleDropBox\FilesToUpload\Cucumber.exe");
+            System.Diagnostics.Process.Start(@"C:\WorkSpace\Java\GoogleDropBox\FilesToUpload\Selenium.exe", @"C:\WorkSpace\Java\GoogleDropBox\FilesToUpload\Cucumber.txt");
             string baseUrl = "http://demo.guru99.com/test/upload/";
             driver.Navigate().GoToUrl(baseUrl);
             IWebElement uploadElement = driver.FindElement(By.XPath("//input[@id='uploadfile_0']"));

@@ -18,17 +18,7 @@ namespace PageObjectModel.TestBatches
         string root;
         public TestSuites()
         {
-            //root = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
-            //int ranNum = new Random().Next(9999);
-            //extent = new ExtentReports(root+"\\Reports\\POMReports"+ranNum+".html");
-            //extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\POMReports" + new Random().Next(9999) + ".html");
 
-        }
-
-        public void CreateParentTest(string parentName,string description)
-        {
-            extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\"+ parentName+"-" + new Random().Next(9999) + ".html");
-            parentTest = extent.StartTest(parentName, description);
         }
         //Smoke ->Constructor -extent object ->In to Smoke - parentTest object
        [TestMethod]
@@ -42,7 +32,6 @@ namespace PageObjectModel.TestBatches
         [TestMethod]
        public void RegressionSuite()
        {
-            //parentTest = extent.StartTest("Regression Test", "This is for my Full Cycle Testing");
             CreateParentTest("RegressionSuite", "This is for my Full Cycle Testing");
             Debug.WriteLine("Test Suite : SMOKE");
             ComposeAndSendAnEmail();
@@ -52,10 +41,9 @@ namespace PageObjectModel.TestBatches
 
         }
         [TestCleanup]
-        public void postEvents()
+        public void PostEvents()
         {
             Debug.WriteLine("Post Events");
-            //driver.Quit();
             extent.EndTest(parentTest);
             extent.Flush();
             extent.Close();

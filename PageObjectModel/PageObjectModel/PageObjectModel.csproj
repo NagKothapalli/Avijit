@@ -115,10 +115,14 @@
   <ItemGroup>
     <Compile Include="AppUtils\DriverSetUp.cs" />
     <Compile Include="GeneralUtils\ReadJsonData.cs" />
+    <Compile Include="GeneralUtils\ReportGenarator.cs" />
     <Compile Include="PageObjects\Inbox.cs" />
     <Compile Include="PageObjects\Login.cs" />
     <Compile Include="Specflow\Runner.cs" />
-    <Compile Include="Specflow\StepDefinitions\StepDefinition1.cs" />
+    <Compile Include="Specflow\StepDefinitions\CancelTicketSteps.cs" />
+    <Compile Include="Specflow\StepDefinitions\HomeSteps.cs" />
+    <Compile Include="Specflow\StepDefinitions\LoginSteps.cs" />
+    <Compile Include="Specflow\StepDefinitions\TicketStatusSteps.cs" />
     <Compile Include="TestBatches\TestSuites.cs" />
     <Compile Include="TestScenarios\TestCases.cs" />
     <Compile Include="UnitTest1.cs" />
@@ -127,7 +131,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Specflow\FeatureFiles\SpecFlowFeature1.feature" />
+    <None Include="Specflow\FeatureFiles\Apsrtc.feature" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
