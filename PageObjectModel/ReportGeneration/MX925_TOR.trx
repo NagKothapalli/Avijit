@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b4001f31-5a9b-4225-b570-bc8cade9c58c" name="NAG PC@DESKTOP-6ILA6QM 2020-12-14 23:42:27" runUser="DESKTOP-6ILA6QM\NAG PC" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="2ef6dad1-906a-45e4-86c3-b68301d76c12">
+    <Deployment userDeploymentRoot="D:\WorkSpace\CsharpGit\PageObjectModel\ReportGeneration" useDefaultDeploymentRoot="false" runDeploymentRoot="NAG PC_DESKTOP-6ILA6QM 2020-12-14 23_42_27" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2020-12-14T23:42:27.9139164+05:30" queuing="2020-12-14T23:42:29.2069545+05:30" start="2020-12-14T23:42:29.5263049+05:30" finish="2020-12-14T23:42:31.7527075+05:30" />
+  <ResultSummary outcome="Error">
+    <Counters total="11" executed="11" error="11" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="SeeTrashMails2" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="09f9c8cd-193d-7cb2-a4cf-12110faa4229">
+      <Execution id="03fa4c8a-eb34-4299-86f3-eb733c162a06" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Trash, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SeeTrashMails2" />
+    </UnitTest>
+    <UnitTest name="SeeSentMails1" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="49924b4a-0cb6-7983-944c-15770488a416">
+      <Execution id="5796242f-b4ea-4bf1-87c1-21ad6aa9a4a9" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Sent, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SeeSentMails1" />
+    </UnitTest>
+    <UnitTest name="SeeSentMails3" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="eee1cc95-d9a2-d8cf-aa7b-3c882f9c93b5">
+      <Execution id="2eb33070-a9f3-4b2e-9a47-5a708de3202e" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Sent, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SeeSentMails3" />
+    </UnitTest>
+    <UnitTest name="SeeTrashMails3" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="9da44ca1-532e-8cd9-162c-57b5f9af0682">
+      <Execution id="18d138ba-22e2-41a9-902e-c40cc74472c8" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Trash, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SeeTrashMails3" />
+    </UnitTest>
+    <UnitTest name="ComposeEmail2" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="dc33fad7-98f4-5a79-c731-aed5d6fe9b6f">
+      <Execution id="f77745a6-590c-4d83-8326-d1df39e48481" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Inbox, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ComposeEmail2" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="d4b308db-3b89-0e68-7e40-06ff1340755a">
+      <Execution id="1ef6b26a-5f51-4af0-85ca-f3a9fbc8eff5" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.UnitTest1, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="SeeSentMails2" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="7d9c5c2f-91a0-4713-7efb-f9273adfe7c7">
+      <Execution id="7677124e-3c2a-41c5-84f9-c08a103ba544" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Sent, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SeeSentMails2" />
+    </UnitTest>
+    <UnitTest name="GenerateHtml" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="2bae66cf-c590-505c-94ee-7b3549426c2c">
+      <Execution id="876b20fb-a92d-4547-b99b-27ae92264e1e" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.Reports.TrxToHtmlConverter, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GenerateHtml" />
+    </UnitTest>
+    <UnitTest name="SeeTrashMails1" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="ce73e8c7-ed02-3c1b-b173-106662c6c0dd">
+      <Execution id="db5944e5-e744-4679-971e-270691326c00" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Trash, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SeeTrashMails1" />
+    </UnitTest>
+    <UnitTest name="ComposeEmail3" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="220e7993-444c-dbb5-b3b8-7f31c0b60588">
+      <Execution id="62f324d7-8af6-42be-b0cc-e98ccb2e2482" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Inbox, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ComposeEmail3" />
+    </UnitTest>
+    <UnitTest name="ComposeEmail1" storage="d:\workspace\csharpgit\pageobjectmodel\reportgeneration\bin\debug\reportgeneration.dll" id="cb2c586b-f5bd-939a-a949-0f49d4b7660b">
+      <Execution id="1092f56c-3dce-4af2-a655-ee87970603ff" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/ReportGeneration/bin/Debug/ReportGeneration.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ReportGeneration.TestCases.Inbox, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ComposeEmail1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2bae66cf-c590-505c-94ee-7b3549426c2c" executionId="876b20fb-a92d-4547-b99b-27ae92264e1e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cb2c586b-f5bd-939a-a949-0f49d4b7660b" executionId="1092f56c-3dce-4af2-a655-ee87970603ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc33fad7-98f4-5a79-c731-aed5d6fe9b6f" executionId="f77745a6-590c-4d83-8326-d1df39e48481" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="220e7993-444c-dbb5-b3b8-7f31c0b60588" executionId="62f324d7-8af6-42be-b0cc-e98ccb2e2482" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="49924b4a-0cb6-7983-944c-15770488a416" executionId="5796242f-b4ea-4bf1-87c1-21ad6aa9a4a9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d9c5c2f-91a0-4713-7efb-f9273adfe7c7" executionId="7677124e-3c2a-41c5-84f9-c08a103ba544" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eee1cc95-d9a2-d8cf-aa7b-3c882f9c93b5" executionId="2eb33070-a9f3-4b2e-9a47-5a708de3202e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ce73e8c7-ed02-3c1b-b173-106662c6c0dd" executionId="db5944e5-e744-4679-971e-270691326c00" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09f9c8cd-193d-7cb2-a4cf-12110faa4229" executionId="03fa4c8a-eb34-4299-86f3-eb733c162a06" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9da44ca1-532e-8cd9-162c-57b5f9af0682" executionId="18d138ba-22e2-41a9-902e-c40cc74472c8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d4b308db-3b89-0e68-7e40-06ff1340755a" executionId="1ef6b26a-5f51-4af0-85ca-f3a9fbc8eff5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="876b20fb-a92d-4547-b99b-27ae92264e1e" testId="2bae66cf-c590-505c-94ee-7b3549426c2c" testName="GenerateHtml" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:29.6979691+05:30" endTime="2020-12-14T23:42:31.3717360+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="876b20fb-a92d-4547-b99b-27ae92264e1e">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1092f56c-3dce-4af2-a655-ee87970603ff" testId="cb2c586b-f5bd-939a-a949-0f49d4b7660b" testName="ComposeEmail1" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.3817070+05:30" endTime="2020-12-14T23:42:31.3968614+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1092f56c-3dce-4af2-a655-ee87970603ff">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f77745a6-590c-4d83-8326-d1df39e48481" testId="dc33fad7-98f4-5a79-c731-aed5d6fe9b6f" testName="ComposeEmail2" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.4068408+05:30" endTime="2020-12-14T23:42:31.4207965+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f77745a6-590c-4d83-8326-d1df39e48481">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="62f324d7-8af6-42be-b0cc-e98ccb2e2482" testId="220e7993-444c-dbb5-b3b8-7f31c0b60588" testName="ComposeEmail3" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.4367531+05:30" endTime="2020-12-14T23:42:31.4537579+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62f324d7-8af6-42be-b0cc-e98ccb2e2482">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5796242f-b4ea-4bf1-87c1-21ad6aa9a4a9" testId="49924b4a-0cb6-7983-944c-15770488a416" testName="SeeSentMails1" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.4567511+05:30" endTime="2020-12-14T23:42:31.4667274+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5796242f-b4ea-4bf1-87c1-21ad6aa9a4a9">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7677124e-3c2a-41c5-84f9-c08a103ba544" testId="7d9c5c2f-91a0-4713-7efb-f9273adfe7c7" testName="SeeSentMails2" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.4737036+05:30" endTime="2020-12-14T23:42:31.4816818+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7677124e-3c2a-41c5-84f9-c08a103ba544">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2eb33070-a9f3-4b2e-9a47-5a708de3202e" testId="eee1cc95-d9a2-d8cf-aa7b-3c882f9c93b5" testName="SeeSentMails3" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.4842061+05:30" endTime="2020-12-14T23:42:31.4907019+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2eb33070-a9f3-4b2e-9a47-5a708de3202e">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="db5944e5-e744-4679-971e-270691326c00" testId="ce73e8c7-ed02-3c1b-b173-106662c6c0dd" testName="SeeTrashMails1" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.5147380+05:30" endTime="2020-12-14T23:42:31.5257034+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="db5944e5-e744-4679-971e-270691326c00">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="03fa4c8a-eb34-4299-86f3-eb733c162a06" testId="09f9c8cd-193d-7cb2-a4cf-12110faa4229" testName="SeeTrashMails2" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.5316879+05:30" endTime="2020-12-14T23:42:31.5648447+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="03fa4c8a-eb34-4299-86f3-eb733c162a06">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="18d138ba-22e2-41a9-902e-c40cc74472c8" testId="9da44ca1-532e-8cd9-162c-57b5f9af0682" testName="SeeTrashMails3" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.5678365+05:30" endTime="2020-12-14T23:42:31.5798068+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="18d138ba-22e2-41a9-902e-c40cc74472c8">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1ef6b26a-5f51-4af0-85ca-f3a9fbc8eff5" testId="d4b308db-3b89-0e68-7e40-06ff1340755a" testName="TestMethod1" computerName="DESKTOP-6ILA6QM" startTime="2020-12-14T23:42:31.5887815+05:30" endTime="2020-12-14T23:42:31.6007469+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ef6b26a-5f51-4af0-85ca-f3a9fbc8eff5">
+      <Output>
+        <ErrorInfo>
+          <Message>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

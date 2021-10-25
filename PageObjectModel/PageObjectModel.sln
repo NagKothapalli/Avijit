@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDTFrameWork", "DDTFrameWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiniumDesktopAutomation", "WiniumDesktopAutomation\WiniumDesktopAutomation.csproj", "{DB912B9A-6193-4534-9120-2765658AE286}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportGeneration", "ReportGeneration\ReportGeneration.csproj", "{89056F67-0024-45DD-B5B6-171AC8458E76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrxToHtmlConversion", "TrxToHtmlConversion\TrxToHtmlConversion.csproj", "{C1093249-17A8-4FCC-B655-65A48C1F5661}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalReport", "FinalReport\FinalReport.csproj", "{14943DC7-75E1-4388-BCB1-10C219CF777A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sowmya-API", "Sowmya-API\Sowmya-API.csproj", "{3D1B3311-EA86-4015-8B4A-684775CC1647}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +41,22 @@ Global
 		{DB912B9A-6193-4534-9120-2765658AE286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB912B9A-6193-4534-9120-2765658AE286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB912B9A-6193-4534-9120-2765658AE286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89056F67-0024-45DD-B5B6-171AC8458E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89056F67-0024-45DD-B5B6-171AC8458E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89056F67-0024-45DD-B5B6-171AC8458E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89056F67-0024-45DD-B5B6-171AC8458E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1093249-17A8-4FCC-B655-65A48C1F5661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1093249-17A8-4FCC-B655-65A48C1F5661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1093249-17A8-4FCC-B655-65A48C1F5661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1093249-17A8-4FCC-B655-65A48C1F5661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14943DC7-75E1-4388-BCB1-10C219CF777A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14943DC7-75E1-4388-BCB1-10C219CF777A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14943DC7-75E1-4388-BCB1-10C219CF777A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14943DC7-75E1-4388-BCB1-10C219CF777A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1B3311-EA86-4015-8B4A-684775CC1647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1B3311-EA86-4015-8B4A-684775CC1647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1B3311-EA86-4015-8B4A-684775CC1647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1B3311-EA86-4015-8B4A-684775CC1647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

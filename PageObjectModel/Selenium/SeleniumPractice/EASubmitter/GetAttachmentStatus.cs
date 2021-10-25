@@ -171,6 +171,14 @@ namespace Selenium.SeleniumPractice.EASubmitter
             return dmsRefNumbers;
 
         }
+
+        [TestMethod]
+        public void UploadMultiAttachments2()
+        {
+            string JsonFilePath = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "\\") + "SeleniumPractice\\EASubmitter\\Data\\MultiAttachment.json";
+            //responses = JsonConvert.DeserializeObject<Responses>(File.ReadAllText(JsonFilePath));
+            MyResponses a = JsonConvert.DeserializeObject<MyResponses>(File.ReadAllText(JsonFilePath));
+        }
         [TestMethod]
         public void ReadStatusResponse()
         {

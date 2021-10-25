@@ -235,8 +235,11 @@
     <Compile Include="InheritanceByObject\Rcomponents.cs" />
     <Compile Include="InheritanceByObject\TestBatches.cs" />
     <Compile Include="InheritanceByObject\TestScenarios.cs" />
+    <Compile Include="SeleniumPractice\EASubmitter\ClaimViewer.cs" />
+    <Compile Include="SeleniumPractice\EASubmitter\DeleteServiceLine.cs" />
     <Compile Include="SeleniumPractice\EASubmitter\GetAttachmentStatus.cs" />
     <Compile Include="SeleniumPractice\EASubmitter\Utilities.cs" />
+    <Compile Include="SeleniumPractice\EASubmitter\WorkLinkReader.cs" />
     <Compile Include="SeleniumPractice\Submitter.cs" />
     <Compile Include="SeleniumPractice\EASubmitter\EASubmitterAPI.cs" />
     <Compile Include="SeleniumPractice\NewTours.cs" />
@@ -244,10 +247,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="SeleniumPractice\EASubmitter\Data\AttachmentStatus.json" />
     <None Include="SeleniumPractice\EASubmitter\Data\EASubmitterPayLoad.json" />
+    <None Include="SeleniumPractice\EASubmitter\Data\MultiAttachment.json" />
+    <None Include="SeleniumPractice\EASubmitter\Data\WorkLink.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />

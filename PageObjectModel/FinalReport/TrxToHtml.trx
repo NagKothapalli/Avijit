@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="14174b6c-5043-4227-be76-066119cd3d6f" name="NAG PC@DESKTOP-6ILA6QM 2020-12-21 07:53:43" runUser="DESKTOP-6ILA6QM\NAG PC" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="6b35028c-e742-497b-af14-e4b6e602d8b3">
+    <Deployment userDeploymentRoot="D:\WorkSpace\CsharpGit\PageObjectModel\FinalReport" useDefaultDeploymentRoot="false" runDeploymentRoot="NAG PC_DESKTOP-6ILA6QM 2020-12-21 07_53_43" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2020-12-21T07:53:43.0745033+05:30" queuing="2020-12-21T07:53:44.4432572+05:30" start="2020-12-21T07:53:44.6536929+05:30" finish="2020-12-21T07:53:47.1487805+05:30" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GenerateHtml" storage="d:\workspace\csharpgit\pageobjectmodel\finalreport\bin\debug\finalreport.dll" id="6bca467e-9f5b-be87-3651-b9779eca28a6">
+      <Execution id="272ea7fb-6a00-40e3-b2b5-bf4bf907129d" />
+      <TestMethod codeBase="D:/WorkSpace/CsharpGit/PageObjectModel/FinalReport/bin/Debug/FinalReport.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FinalReport.ConvertTrx, FinalReport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GenerateHtml" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="6bca467e-9f5b-be87-3651-b9779eca28a6" executionId="272ea7fb-6a00-40e3-b2b5-bf4bf907129d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="272ea7fb-6a00-40e3-b2b5-bf4bf907129d" testId="6bca467e-9f5b-be87-3651-b9779eca28a6" testName="GenerateHtml" computerName="DESKTOP-6ILA6QM" duration="00:00:00.9365844" startTime="2020-12-21T07:53:44.8890615+05:30" endTime="2020-12-21T07:53:47.0116172+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="272ea7fb-6a00-40e3-b2b5-bf4bf907129d">
+      <Output>
+        <StdOut>Loading xslt template...
+Loading css...
+Loading javascript...
+Transforming...
+Done transforming xml into html</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,1831 @@
+﻿<!DOCTYPE html><html xmlns:t="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <style>html,
+body,
+form,
+fieldset,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+blockquote,
+ul,
+ol,
+dl,
+address {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapOverall {
+    width: auto;
+    margin: -8px 0px 0px 0px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#floatingImageBackground {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -330px;
+    z-index: 100;
+    width: 680px;
+    height: 600px;
+    visibility: hidden;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    border: 2px #0f9bdc;
+    border-style: solid;
+}
+
+.hWhite {
+    color: white;
+}
+
+.titleCenterd {
+    position: relative;
+    top: 12px;
+}
+
+.StatusBar {
+    width: 100%;
+    height: 60px;
+}
+
+.statusBarPassed {
+    background-color: #5bab5b;
+}
+
+.statusBarFailed {
+    background-color: #b93333;
+}
+
+.statusBarFailedInner {
+    position: relative;
+    background-color: #a90000;
+    width: 100%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 15%;
+}
+
+.statusBarPassedInner {
+    position: relative;
+    background-color: #339833;
+    width: 100%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 15%;
+}
+
+#floatingImage {
+    position: relative;
+    margin-left: 8%;
+    margin-top: 6%;
+    width: auto;
+    max-width: 566px;
+}
+
+.floatingImageCloseButton {
+    background-image: url('data:image/png;base64,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');
+    font-size: 50px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 20px;
+    left: 3%;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    background-repeat: no-repeat;
+}
+
+.atachmentImage {
+    float: right;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAJFBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAW+S7RAAAAC3RSTlMAABBAYHCfv8/f7y5wfg4AAACNSURBVHhendC9DYMwFEXhq0BEi7egTJEBIlHSuKdhBHpGYARGSEtA8JaDBwjbt0Aop/zk5z8Y6gZoh8KVyVrl4NEqDDiXZ7JVGZPu0O4wbPDsxGuyKCXoh28IM4Q6YMzfTQAfIPahx1rhQa2QONAJnXHwUoiugEd4Uz6WL8ZXF4qfP/EH9fSFs4Wh/oAFE9baEPQEC+YAAAAASUVORK5CYIIyNjk=');
+}
+
+
+#exceptionArrow {
+    float: left;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+body {
+    font: 15px/18px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    margin-top: -10px;
+    min-width: 890px;
+}
+
+p {
+    text-align: center;
+}
+
+a:link {
+    color: #1DA1EC;
+    text-decoration: none;
+    border-bottom: 1px dotted #ffbac8;
+}
+
+a:visited {
+    color: #9B0780;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: #3ec141;
+    border-bottom: 1px solid #ffffff;
+    text-decoration: none;
+}
+
+
+.StatusesBorders {
+    border-width: 0;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    width: 100px;
+}
+
+.PackageStatus {
+    width: 100px;
+}
+
+.SummaryTable {
+    width: auto;
+    max-width: 407px;
+    float: left;
+    margin-right: 20px;
+}
+
+#divToRefresh > div > table.SummaryTable > tbody > tr > th {
+    width: auto;
+}
+
+.DetailsTable {
+    width: auto;
+    max-width: 600px;
+    float: left;
+    margin-right: 20px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.StatusesTable {
+    width: auto;
+}
+
+#divToRefresh > div.SummaryDiv > table.DetailsTable > tbody > tr > td {
+    text-align: left;
+    word-wrap: break-word;
+}
+
+#divToRefresh > div.SummaryDiv > table.DetailsTable > tbody > tr > th {
+    width: 30px;
+    /*background-color: #FFFFFF;*/
+}
+
+td.slowest {
+    width: auto;
+}
+
+#TotalTestsTable {
+    min-width: 250px;
+    width: auto;
+    float: left;
+    margin-right: 20px;
+}
+
+.SummaryDiv {
+    width: 90%;
+    border-top: 1px solid #e5eff8;
+    border-right: 1px solid #e5eff8;
+    margin: 1em auto;
+    border-collapse: collapse;
+}
+
+.Summary {
+    float: left;
+    border-collapse: collapse;
+}
+
+#btn-download {
+    font-size: 14px;
+}
+
+.column1 {
+    background: #dbedff;
+    width: 170px;
+}
+
+.testNameFailed {
+    color: #ff1212;
+}
+
+.testNamePassed {
+    color: #178700;
+}
+
+.column1Failed {
+    background: #fed9d98f;
+    width: 30px;
+}
+
+.column1Passed {
+    background: #addcb71a;
+    width: 30px;
+}
+
+#ReportsTable th {
+}
+
+#TotalPassed {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    color: #7CCD7C;
+    background: #c0eec0;
+    border: 1px solid #7CCD7C;
+    margin-bottom: 5px;
+}
+
+#TotalWarn {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    color: #E4C100;
+    background: #FBE87E;
+    border: 1px solid #E4C100;
+    margin-bottom: 5px;
+}
+
+#TotalFailed {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    color: #d42945;
+    background: #fed9d9;
+    border: 1px solid #d42945;
+    margin-bottom: 5px;
+}
+
+#TotalInfo {
+    min-width: 30px;
+    width: auto;
+    height: auto;
+    border: 1px solid #c7c7c7;
+    color: #c7c7c7;
+    background: #e0e0e0;
+}
+
+#dataViewer {
+    width: 240px;
+}
+
+.OpenMoreButton {
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: left;
+    color: #1b99fb;
+    background-color: white;
+    border: 1px solid #7ac5ff;
+    float: left;
+    text-indent: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.OpenMoreButton:hover {
+    background-color: #bfe3ff;
+    text-decoration: none;
+}
+
+
+
+#MoreButtonText {
+    color: #1b99fb;
+    top: 0;
+    left: 25px;
+    font-weight: normal;
+    text-align: center;
+    font-size: 15px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.NumberTag {
+    display: inline;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 4px;
+    height: auto;
+    color: #678197;
+    border: 1px solid #78bcff;
+    background-color: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2px;
+    line-height: 27px;
+}
+
+.NumberTagRed {
+    background-color: #fed9d9;
+}
+
+.NumberTagGreen {
+    background-color: #c0eec0;
+}
+
+.NumberTagYellow {
+    background-color: #FBE87E;
+}
+
+.hiddenRow {
+    display: none;
+    visibility: hidden;
+}
+
+.visibleRow {
+    visibility: visible;
+}
+
+.fa-search:before {
+    content: '\e802';
+}</style>
+    <style>table a,
+table a:link,
+table a:visited {
+    border: none;
+}
+
+img {
+    border: 0;
+    margin-top: .5em;
+}
+
+table {
+    width: 99%;
+    margin: 1em auto;
+    border-collapse: collapse;
+    border: 1px solid #a2caf2;
+}
+
+caption {
+    color: #9ba9b4;
+    font-size: 16px;
+    letter-spacing: .2em;
+    margin: 1em 0 0 0;
+    caption-side: top;
+    text-align: center;
+    font-weight: normal;
+    border-top: 1px solid #a2caf2;
+    border-left: 1px solid #a2caf2;
+    border-right: 1px solid #a2caf2;
+    padding: 5px 10px 5px 15px;
+}
+
+tr.odd .column1 {
+    background: #dbedff;
+}
+
+tr.odd.column1Failed	{
+    background:#fed9d9;
+    width:30px;
+}
+
+tr.odd td, tr.sep td {
+    background: #FFFFFF;
+}
+
+tr.sep .column1 {
+    background: #7CCD7C;
+}
+
+tr.odd .ex,
+tr.sep .ex,
+td.ex {
+    text-align: left;
+    width: 100px;
+}
+
+td.exShow {
+    text-align: left;
+    width: 100px;
+    color: #000;
+}
+
+td.statusCount {
+    width: auto;
+}
+
+th.statusCount {
+    width: auto;
+}
+
+td.critical {
+    text-align: left;
+    width: 100px;
+}
+
+td.Message {
+    text-align: left;
+    width: auto;
+    word-wrap: break-word;
+}
+
+td.Messages {
+    text-align: left;
+    width: auto;
+    word-wrap: break-word;
+    max-width: 600px;
+}
+
+.Atached {
+    width: 30px
+}
+
+.CommentInput {
+    width: 95%;
+    border: 1px solid #dcdce4;
+}
+
+td.LongText {
+    text-align: left;
+    color: black;
+    font-size: 12px;
+}
+
+tr.sep .error,
+tr.odd .error,
+td.error {
+    background: #F08080;
+}
+
+tr.odd .warn,
+tr.sep .warn,
+td.warn {
+    color: #E4C100;
+    background: #FBE87E;
+    width: 90px;
+}
+
+tr.odd .info,
+td.info,
+tr.sep .info {
+    color: #c7c7c7;
+    background: #e0e0e0;
+    width: 90px;
+}
+
+tr.odd .failed,
+tr.sep.failed,
+td.failed {
+    color: #d42945;
+    background: #fed9d9;
+    width: 90px;
+}
+
+tr.odd .passed,
+tr.sep.passed,
+td.passed {
+    color: #7CCD7C;
+    background: #c0eec0;
+    width: 90px;
+}
+
+td {
+    color: #425b71;
+;
+    padding: .3em 1em;
+    text-align: center;
+    border-left: 1px solid #a2caf2;
+    border-top: 1px solid #a2caf2;
+    word-wrap: break-word;
+}
+
+th {
+    font-weight: normal;
+    color: #678197;
+    text-align: left;
+    border-left: 1px solid #a2caf2;
+    border-top: 1px solid #a2caf2;
+    padding: .3em 1em;
+}
+
+thead th.TestsTable {
+    font-size: 17px;
+    font-weight: normal;
+}
+
+thead th {
+    background: #dbedff;
+    text-align: center;
+    font: bold 1.2em/2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+    color: #66a3d3;
+    font-size: 14px;
+    padding: 1px;
+}
+
+tfoot th {
+    text-align: center;
+    background: #f4f9fe;
+}
+
+tfoot th strong {
+    font: bold 1.2em "Century Gothic","Trebuchet MS",Arial,Helvetica,sans-serif;
+    margin: .5em .5em .5em 0;
+    color: #678197;
+}
+
+tfoot th em {
+    color: #678197;
+    font-weight: bold;
+    font-size: 1.1em;
+    font-style: normal;
+}
+
+.FiterResults {
+    height: auto;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: #ffffff;
+    background-color: #413a3a;
+    border: 1px solid #7ac5ff;
+    float: left;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    margin: 10px 0px 10px 10px;
+    min-width: 250px;
+}
+
+.TestsFilterCriteria {
+    height: auto;
+    max-width: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: #413a3a;
+    float: left;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin: 10px 0px 10px 10px;
+}
+
+.fa-search {
+    content: '\e802';
+}
+
+.ShowRules {
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+    color: #141dc9;
+    float: left;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    margin: 10px 0px 10px 10px;
+}</style><script language="javascript" type="text/javascript">var myColor = ["#c0eec0", "#fed9d9", "#FBE87E"];//green,red,yellow
+var myStrokeColor = ["#7CCD7C", "#d42945", "#ffcc00"];
+
+function GetShortDateTime(time)
+{
+    return time;
+}
+
+function ToExactTimeDefinition(start,finish)
+{
+    return finish;
+}
+
+function ParseDuration(duration)
+{
+    return "01:23:45";
+}
+
+function ExtractImageUrl(text)
+{
+    return "d:\\image.jpg";
+}
+
+function ShowHide(id1, id2, textOnHide, textOnShow) {
+    if (document.getElementById(id1).className == 'visibleRow') {
+        document.getElementById(id2).innerHTML = textOnHide;
+        document.getElementById(id1).className = 'hiddenRow';
+    }
+    else {
+        document.getElementById(id2).innerHTML = textOnShow;
+        document.getElementById(id1).className = 'visibleRow';
+    }
+}
+
+function FilterRows() {
+    xpath = "//tr[contains(@id,'testRow')]";
+    for (i = 0; i < arguments.length; i++) {
+        filterText = GetElementsByXpath("//input[@id='filter" + arguments[i] + "']")[0].value;
+        xpath = xpath + "[./td[@id='row"+arguments[i]+"' and .//*[contains(text(),'"+filterText+"')]]]";
+    }
+    ReplaceClass(xpath, "hiddenRow", "visibleRow");
+}
+
+function SortRows(column) {
+    var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = GetElementsByXpath("//table[@id='ReportsTable']//tr[contains(@id,'testRow') and contains(@class,'visibleRow')]");
+        for (i = 0; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].querySelector('[id="row'+column+'"]').textContent;
+            y = rows[i+1].querySelector('[id="row'+column+'"]').textContent;
+            if (dir == "asc") {
+                if (x.toLowerCase() > y.toLowerCase()) {
+                    shouldSwitch= true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (x.toLowerCase() < y.toLowerCase()) {
+                    shouldSwitch= true;
+                    break;
+                }
+            }
+        }
+
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+
+    rows = GetElementsByXpath("//table[@id='ReportsTable']//tr[contains(@id,'testRow') and contains(@class,'visibleRow')]");
+    for (i = 0; i < (rows.length - 1); i++) {
+        testId = rows[i].id.replace("testRow ", "");
+        detailsRow = GetElementsByXpath("//table[@id='ReportsTable']//tr[@id='" + testId + "TestsContainer']")[0];
+        detailsRow.parentNode.insertBefore(detailsRow, rows[i].nextSibling)
+    }
+}
+
+function ReplaceClass(xpath, oldClassPart, newClassPart) {
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        node = elements[ i ];
+        node.className = node.className.replace(oldClassPart, newClassPart);
+    }
+}
+
+function ReplaceText(xpath, oldTextPart, newTextPart) {
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        node = elements[ i ];
+        node.textContent = node.textContent.replace(oldTextPart, newTextPart);
+    }
+}
+
+function SetText(xpath, newText) {
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        node = elements[ i ];
+        node.textContent = newText;
+    }
+}
+
+function ClearValue(xpath) {
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        elements[i].value = "";
+    }
+}
+
+function CheckUncheck(checkboxXpath, xpath) {
+    selected = GetElementsByXpath(checkboxXpath)[0].checked;
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        node = elements[ i ];
+        if (selected && !node.className.includes(" selected")){
+            node.className = node.className + " selected";
+        } else if (!selected && node.className.includes(" selected")) {
+            node.className = node.className.replace(" selected", "");
+        }
+    }
+}
+
+function CheckUncheckAll(checkboxAllXpath, testCheckboxesXpath) {
+    checked = GetElementsByXpath(checkboxAllXpath)[0].checked;
+    elements = GetElementsByXpath(testCheckboxesXpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        elements[ i ].checked = checked;
+    }
+}
+
+function UncheckAll(xpath) {
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i) {
+        elements[ i ].checked = false;
+    }
+}
+
+function SetTfsTestFilterCriteria(testsXpath, resultFieldXpath) {
+    elements = GetElementsByXpath(testsXpath);
+    x = "";
+    for (i = 0, n = elements.length; i < n; ++i) {
+        x = x + "Name=" + elements[i].textContent + "|";
+    }
+    x = x.substring(0, x.length - 1);
+    GetElementsByXpath(resultFieldXpath)[0].textContent = x;
+}
+
+function SetLocalTestFilterCriteria(testsXpath, resultFieldXpath) {
+    elements = GetElementsByXpath(testsXpath);
+    x = "/Tests:";
+    for (i = 0, n = elements.length; i < n; ++i) {
+        x = x + elements[i].textContent + ",";
+    }
+    x = x.substring(0, x.length - 1);
+    GetElementsByXpath(resultFieldXpath)[0].textContent = x;
+}
+
+function GetElementsByXpath(xpath) {
+    var result = document.evaluate(xpath, document.documentElement, null,
+        XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+    elements = [];
+    if (result){
+        while ((node = result.iterateNext())) {
+            elements.push(node);
+        }
+    }
+    return elements;
+}
+
+function AddEventListener() {
+    var button = document.getElementById('btn-download');
+    button.addEventListener('click', function () {
+        button.href = canvas.toDataURL('image/png');
+    });
+}
+
+function show(id) {
+    document.getElementById(id).style.visibility = "visible";
+    document.getElementById(id).style.display = "block";
+}
+function hide(id) {
+
+    document.getElementById(id).style.visibility = "hidden";
+    document.getElementById(id).style.display = "none";
+}
+
+function OpenInNewWindow(){
+    var largeImage = document.getElementById('floatingImage');
+    var url=largeImage.getAttribute('src');
+    window.open(url,'Image');
+}
+
+function updateFloatingImage(url) {
+    document.getElementById('floatingImage').src = url;
+}
+
+function download(filename, text) {
+    console.log("download method");
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+function downloadCurrentHtml() {
+    currentUrl = window.location.href;
+    currentName = currentUrl.substring(currentUrl.lastIndexOf("/") + 1);
+    updatedName = currentName.substring(0, currentName.lastIndexOf(".")) + ".with_comments.html";
+    download(updatedName, document.documentElement.innerHTML);
+}
+
+function saveComment(xpath){
+    console.log("saveComment mehtod");
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i){
+        elements[i].setAttribute("value", elements[i].value);
+    }
+}
+
+function extractComment(xpath) {
+    elements = GetElementsByXpath(xpath);
+    for (i = 0, n = elements.length; i < n; ++i){
+        //elements[i].value = localStorage.getItem(elements[i].id);
+        elements[i].value = elements[i].getAttribute("value");
+    }
+}
+
+/**
+ * @return {number}
+ */
+function GetTotal() {
+    var myTotal = 0;
+    for (var j = 0; j < myData.length; j++) {
+        myTotal += (typeof myData[j] == 'number') ? myData[j] : 0;
+    }
+    return myTotal;
+}
+
+function CreateHorizontalBars(id, totalPass, totalFailed, totalWarn) {
+
+    if (isNaN(totalPass) || isNaN(totalFailed) || isNaN(totalWarn)) {
+        drawLine(30, 4.5, 3, 30.5, id);
+    }
+    var canvas;
+    var ctx;
+    var myArray = new Array(3);
+    myArray[0] = totalPass;
+    myArray[1] = totalFailed;
+    myArray[2] = totalWarn;
+
+    canvas = document.getElementById(id);
+    ctx = canvas.getContext("2d");
+
+    var cw = canvas.width;
+    var ch = canvas.height;
+
+    var width = 6;
+    var currX = -12;
+
+    ctx.translate(cw / 2, ch / 2);
+
+    ctx.rotate(Math.PI / 2);
+
+    ctx.restore();
+
+    for (var i = 0 ; i < myArray.length; i++) {
+        ctx.moveTo(100, 0);
+        ctx.fillStyle = myColor[i];
+        var h = myArray[i];
+        ctx.fillRect(currX, (canvas.height - h) + 25, width, h);
+        currX += width + 1;
+    }
+}
+
+
+
+function CreatePie() {
+    var canvas;
+    var ctx;
+    var lastend = 0;
+    var myTotal = GetTotal();
+
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    CreateText();
+
+    for (var i = 0; i < myData.length; i++) {
+        ctx.fillStyle = myColor[i];
+        ctx.beginPath();
+        ctx.moveTo(160, 75);
+        ctx.arc(160, 75, 75, lastend, lastend +
+            (Math.PI * 2 * (myData[i] / myTotal)), false);
+        ctx.lineTo(160, 75);
+        ctx.fill();
+        lastend += Math.PI * 2 * (myData[i] / myTotal);
+        ctx.arc(160, 75, 40, 0, Math.PI * 2);
+    }
+
+    // either change this to the background color, or use the global composition
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.beginPath();
+    ctx.moveTo(160, 35);
+    ctx.arc(160, 75, 40, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+    // if using the global composition method, make sure to change it back to default.
+    ctx.globalCompositeOperation = "source-over";
+}
+
+function drawLine(x1, y1, x2, y2, id) {
+    var canvas = document.getElementById(id);
+    var context = canvas.getContext("2d");
+
+    for (var i = 0; i < 8; i++) {
+        context.fillStyle = '#000';
+        context.strokeStyle = '#B0B0B0';
+
+        context.beginPath();
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.lineWidth = 1;
+        context.stroke();
+        context.closePath();
+        x1 += 10;
+        y2 += 10;
+    }
+}
+
+function CreateText() {
+    var canvas;
+    var ctx;
+    var textPosY = 50;
+    var textPosX = 0;
+
+    canvas = document.getElementById("canvas");
+    ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (var i = 0; i < myData.length; i++) {
+        ctx.fillStyle = myStrokeColor[i];
+        ctx.font = "15px arial";
+        ctx.fillText(myParsedData[i], textPosX, textPosY);
+        textPosY += 35;
+    }
+}
+
+var allPassed = 0;
+var allFailed = 0;
+var allWarns = 0;
+
+var myData = [];
+
+var myParsedData = [];
+
+function CalculateTotalPrecents() {
+
+    var totalTests = allPassed + allFailed + allWarns;
+    var passedPrec = (allPassed / totalTests) * 100;
+    var failedPrec = (allFailed / totalTests) * 100;
+    var warnPrec = (allWarns / totalTests) * 100;
+
+    myData.push(passedPrec);
+    myData.push(failedPrec);
+    myData.push(warnPrec);
+
+    myParsedData.push(allPassed + " (" + Math.round(passedPrec).toFixed(2) + "%)");
+    myParsedData.push(allFailed + " (" + Math.round(failedPrec).toFixed(2) + "%)");
+    myParsedData.push(allWarns + " (" + Math.round(warnPrec).toFixed(2) + "%)");
+
+    document.getElementById('dataViewer').innerHTML = "<tr class='odd'><td><canvas id='canvas' width='240' height='150'>This text is displayed if your browser does not support HTML5 Canvas.</canvas></td></tr>";
+    CreatePie();
+    AddEventListener();
+}
+
+function CalculateTestsStatuses(testContaineId, canvasId) {
+    var totalPassed = 0;
+    var totalFailed = 0;
+    var totalInconclusive = 0;
+    var e = document.getElementById(testContaineId);
+    var tests = e.getElementsByClassName('Test');
+    for (var i = 0; i < tests.length; i++) {
+        var test = tests[i];
+        if (test.getElementsByClassName('warn').length > 0) {
+            totalInconclusive++;
+            allWarns++;
+        }
+        else if (test.getElementsByClassName('failed').length > 0) {
+            totalFailed++;
+            allFailed++;
+        }
+        else if (test.getElementsByClassName('passed').length > 0) {
+            totalPassed++;
+            allPassed++;
+        }
+    }
+
+    var totalTests = totalFailed + totalInconclusive + totalPassed;
+    var passedPrec = (totalPassed / totalTests) * 100;
+    var failedPrec = (totalFailed / totalTests) * 100;
+    var warnPrec = (totalInconclusive / totalTests) * 100;
+
+
+    CreateHorizontalBars(canvasId, passedPrec, failedPrec, warnPrec);
+}
+</script><title>NAG PC@DESKTOP-6ILA6QM 2020-12-14 23:42:27</title>
+  </head>
+  <body>
+    <div id="divToRefresh" class="wrapOverall">
+      <div id="floatingImageBackground" class="floatingImageBackground" style="visibility: hidden;">
+        <div class="floatingImageCloseButton" onclick="hide('floatingImageBackground');"></div><img src="" id="floatingImage" onclick="OpenInNewWindow();"><div style="margin-left: 200px;">Click image to view in new browser tab</div>
+      </div><br><div class="StatusBar statusBarError">
+        <div class="statusBarErrorInner">
+          <center>
+            <h1 class="hWhite">
+              <div class="titleCenterd">NAG PC@DESKTOP-6ILA6QM 2020-12-14 23:42:27</div>
+            </h1>
+          </center>
+        </div>
+      </div>
+      <div class="SummaryDiv">
+        <table id="TotalTestsTable">
+          <caption>Results Summary</caption>
+          <thead>
+            <tr class="odd">
+              <th scope="col" abbr="Status">
+                                        Pie View
+                                    </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div id="dataViewer"></div>
+              </td>
+            </tr>
+            <tr id="DownloadSection">
+              <td><a href="#" class="button" id="btn-download" download="NAG PC@DESKTOP-6ILA6QM 2020-12-14 23:42:27StatusesPie.png">Save graph</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="DetailsTable StatusesTable">
+          <caption>Tests Statuses</caption>
+          <tbody>
+            <tr class="odd">
+              <th class="column1 statusCount">Total</th>
+              <td class="statusCount">11</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Passed</th>
+              <td class="statusCount">0</td>
+            </tr>
+            <tr>
+              <th scope="row" class="column1 statusCount">Failed</th>
+              <td class="statusCount">0</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="SummaryTable">
+          <caption>Run Time Summary</caption>
+          <tbody>
+            <tr class="odd">
+              <th class="column1">Start Time</th>
+              <td>2020-12-14T23:42:29.5263049+05:30</td>
+            </tr>
+            <tr>
+              <th class="column1">End Time</th>
+              <td>2020-12-14T23:42:31.7527075+05:30</td>
+            </tr>
+            <tr>
+              <th class="column1">Duration</th>
+              <td>2020-12-14T23:42:29.2069545+05:30</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <table>
+        <tbody>
+          <caption></caption>
+          <tr>
+            <td><a id="saveAll" class="FiterResults" style="background-color:#04671d;" onclick="saveComment(&quot;//input[@class=\&quot;CommentInput\&quot;]&quot;);&#xD;&#xA;                                                      saveComment(&quot;//textarea[@class=\&quot;CommentInput\&quot;]&quot;);&#xD;&#xA;                                                      downloadCurrentHtml();" type="button"><div class="MoreButtonText">Save changes and comments</div></a><a class="FiterResults" style="background-color:#04671d;" onclick="extractComment(&quot;//input[@class=\&quot;CommentInput\&quot;]&quot;);&#xD;&#xA;                                                      extractComment(&quot;//textarea[@class=\&quot;CommentInput\&quot;]&quot;)" type="button"><div class="MoreButtonText">Show comments</div></a></td>
+            <td style="width: 100%;"><textarea name="server" id="mainComment" class="CommentInput" type="text" style="width: 100%; height: 90px; color: #e60909;" placeholder="Type comments here or in the row for particular test. Click 'Save changes and comments' button, new .html report with changes will be downloaded. Now comments are saved and you can share newly generated html report with other people, comments will appear by clicking 'Show comments' button."></textarea></td>
+          </tr>
+          <tr>
+            <td style="min-width: 250px;"><a class="FiterResults" style="background-color:#072563ed;" onclick="SetTfsTestFilterCriteria(&quot;//tr[contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;selected\&quot;)]//div[contains(@class,\&quot;MoreButtonText\&quot;)]&quot;, &quot;//span[@id=\&quot;tfsTestFilter\&quot;]&quot;)"><div class="MoreButtonText">Generate TestCaseFilter</div></a></td>
+            <td style="width:100%"><span id="tfsTestFilter" class="TestsFilterCriteria">Check test cases and click button "Generate TestCaseFilter".
+                                        <a target="_blank" href="https://github.com/Microsoft/vstest-docs/blob/master/docs/filter.md">TestCaseFilter can be used to filter tests in TFS</a></span></td>
+          </tr>
+          <tr>
+            <td style="min-width: 250px;"><a class="FiterResults" style="background-color:#072563ed;" onclick="SetLocalTestFilterCriteria(&quot;//tr[contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;selected\&quot;)]//div[contains(@class,\&quot;MoreButtonText\&quot;)]&quot;, &quot;//span[@id=\&quot;localTestFilter\&quot;]&quot;)"><div class="MoreButtonText">Generate Tests filter:</div></a></td>
+            <td style="width:100%"><span id="localTestFilter" class="TestsFilterCriteria">Check test cases and click button "Generate Tests filter".
+                                        <a target="_blank" href="https://msdn.microsoft.com/en-us/library/jj155796.aspx">Tests filter can be used to filter tests in vstest console (start.bat)</a></span></td>
+          </tr>
+          <tr>
+            <td><a class="FiterResults" onclick="ReplaceClass(&quot;//tr[contains(@id,\&quot;testRow\&quot;)]&quot;, &quot;hiddenRow&quot;, &quot;visibleRow&quot;);&#xD;&#xA;                                                   ClearValue(&quot;//input[contains(@id,\&quot;filter\&quot;)]&quot;);"><div class="MoreButtonText">Show All Tests</div></a></td>
+            <td><a class="FiterResults" onclick="ReplaceClass(&quot;//tr[contains(@id,\&quot;testRow\&quot;)][contains(@class,\&quot;testPassed\&quot;)]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                                   ReplaceClass(&quot;//tr[contains(@id,\&quot;TestsContainer\&quot;)][./preceding-sibling::tr[1][contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;testPassed\&quot;)]]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                                   ClearValue(&quot;//input[contains(@id,\&quot;filter\&quot;)]&quot;);"><div class="MoreButtonText">Hide Passed Tests</div></a><a class="FiterResults" onclick="UncheckAll(&quot;//tr[contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;selected\&quot;) and contains(@class,\&quot;visibleRow\&quot;)]//input[@type=\&quot;checkbox\&quot;]&quot;);&#xD;&#xA;                                                   ReplaceClass(&quot;//tr[contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;selected\&quot;)]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                                   ReplaceClass(&quot;//tr[contains(@id,\&quot;TestsContainer\&quot;)][./preceding-sibling::tr[1][contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;selected\&quot;)]]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                                   ClearValue(&quot;//input[contains(@id,\&quot;filter\&quot;)]&quot;);&#xD;&#xA;                                                   ReplaceClass(&quot;//tr[contains(@id,\&quot;testRow\&quot;) and contains(@class,\&quot;selected\&quot;)]&quot;, &quot; selected&quot;, &quot;&quot;);&#xD;&#xA;                                                   "><div class="MoreButtonText">Hide and Uncheck Selected Tests</div></a><a class="FiterResults" onclick="ReplaceClass(&quot;//tr[contains(@id,\&quot;TestsContainer\&quot;)]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                                   ReplaceText(&quot;//div[@class=\&quot;OpenMoreButton\&quot;]/div[contains(@class,\&quot;MoreButtonText\&quot;)]&quot;, &quot;Hide &quot;, &quot;&quot;);"><div class="MoreButtonText">Collapse All</div></a><a class="ShowRules" onclick="ReplaceClass(&quot;//tr[contains(@id,\&quot;infoRow\&quot;)]&quot;, &quot;hiddenRow&quot;, &quot;visibleRow&quot;);cursor:pointer;">click here for help</a></td>
+          </tr>
+          <tr id="infoRow" class="hiddenRow">
+            <td></td>
+            <td>
+              <p style="text-align: left; padding: 10px 10px 10px 10px;">
+                                        1. Don't use IE. Reports work in Chrome and Firefox browser only. Chrome is preferrable.
+                                        <br>
+                                        2. You can click TestMethod name to view logs.
+                                        <br>
+                                        3. When logs are expanded, additionally you can click image icon to view screenshot, or "Show Stacktrace link" to view stacktrace, it they are present (usually stacktrace and screenshot are displayed in the failed tests only).
+                                        <br>
+                                        4. Button "Hide Passed Tests" does not uncheck passed rows, it just hides them.
+                                        <br>
+                                        5. You can click Column titles marked by "↕" sign to sort. Sorting can be applied only by 1 column. Sorting is applied for visible rows only. For ~120 rows sorting may take about 5 seconds, during which page is unresponsive.
+                                        <br>
+                                        6. You can type search keyword in multiple search-boxes and the click "filter" button. Results, that correspond to all the specified search keywords, will be displayed only.
+                                        <br>
+                                        7. When you click "Generate TestCaseFilter" or "Generate Tests filter", all the tests with checked checkboxes will be included, even invisible rows.
+                                        <br>
+                                        8. Checkbox Check / Uncheck All will check and uncheck only visible rows. If you wish to check/uncheck invisible rows, click "Show All Tests" before.
+                                        <br>
+                                        9. You can type notes and comments in the textarea to say something important about whole test run, or in the row for particular test. After "Save changes and comments" button is clicked, comments are saved in the new html report, report is downloaded automatically. Now you can share this new report with other people - they will be able to view your comments by clicking "Show comments" button.
+                                    </p><a class="ShowRules" onclick="ReplaceClass(&quot;//tr[contains(@id,\&quot;infoRow\&quot;)]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);cursor:pointer;">hide</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="ReportsTable">
+        <thead>
+          <tr class="odd">
+            <th scope="col" abbr="Test"><input type="checkbox" class="checkboxAll" onclick="CheckUncheckAll(&quot;//input[@class=\&quot;checkboxAll\&quot;]&quot;,&quot;//tr[contains(@id,\&quot;testRow\&quot;)][contains(@class,\&quot;visibleRow\&quot;)]//input[@class=\&quot;testCheckbox\&quot;]&quot;);&#xD;&#xA;                  CheckUncheck(&quot;//input[@class=\&quot;checkboxAll\&quot;]&quot;,&quot;//tr[contains(@id,\&quot;testRow\&quot;)][contains(@class,\&quot;visibleRow\&quot;)]&quot;)"></th>
+            <th id="columnTestMethod" scope="col" abbr="Test">
+              <div onclick="SortRows('TestMethod')" style="cursor: pointer;">Test Method↕</div>
+            </th>
+            <th id="columnTestClass" scope="col">
+              <div onclick="SortRows('TestClass')" style="cursor: pointer;">Test Class↕</div>
+            </th>
+            <th id="columnTestCase" scope="col">
+              <div onclick="SortRows('TestCase')" style="cursor: pointer;">Test Case↕</div>
+            </th>
+            <th id="columnBug" scope="col">
+              <div onclick="SortRows('Bug')" style="cursor: pointer;">Bug↕</div>
+            </th>
+            <th id="columnCategories" scope="col">
+              <div onclick="SortRows('Categories')" style="cursor: pointer;">Categories↕</div>
+            </th>
+            <th id="columnErrorMessage" scope="col">
+              <div onclick="SortRows('ErrorMessage')" style="cursor: pointer;">Error Message and notes↕</div>
+            </th>
+            <th id="columnStartTime" scope="col">
+              <div onclick="SortRows('StartTime')" style="cursor: pointer;">Start Time↕</div>
+            </th>
+            <th id="columnDuration" scope="col">
+              <div onclick="SortRows('Duration')" style="cursor: pointer;">Duration↕</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:3px;"><button onclick="ReplaceClass(&quot;//tr[contains(@id,\&quot;testRow\&quot;)]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                    ReplaceClass(&quot;//tr[contains(@id,\&quot;TestsContainer\&quot;)]&quot;, &quot;visibleRow&quot;, &quot;hiddenRow&quot;);&#xD;&#xA;                                    ReplaceText(&quot;//div[@class=\&quot;OpenMoreButton\&quot;]/div[contains(@class,\&quot;MoreButtonText\&quot;)]&quot;, &quot;&quot;, &quot;&quot;);&#xD;&#xA;                                    FilterRows(&quot;TestMethod&quot;, &quot;TestClass&quot;, &quot;TestCase&quot;, &quot;Bug&quot;, &quot;Categories&quot;, &quot;ErrorMessage&quot;, &quot;StartTime&quot;, &quot;Duration&quot;);" style="font-size: 17px;float: right;cursor: pointer;width: 100%;padding: 0px 0px 0px 0px;">filter</button></td>
+            <td><input id="filterTestMethod" style="width: 100%;"></td>
+            <td><input id="filterTestClass" style="width: 100%;"></td>
+            <td><input id="filterTestCase" style="width: 100%;"></td>
+            <td><input id="filterBug" style="width: 100%;"></td>
+            <td><input id="filterCategories" style="width: 100%;"></td>
+            <td><input id="filterErrorMessage" style="width: 100%;"></td>
+            <td><input id="filterStartTime" style="width: 100%;"></td>
+            <td><input id="filterDuration" style="width: 100%;"></td>
+          </tr>
+          <tr id="testRow ID0AIBAC0KBAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AIBAC0KBAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AIBAC0KBAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AIBAC0KBACTestsContainer','ID0AIBAC0KBACButton','GenerateHtml','GenerateHtml');">
+                <div class="MoreButtonText testName" id="ID0AIBAC0KBACButton">GenerateHtml</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.Reports.TrxToHtmlConverter, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AIBAC0KBAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:29.6979691+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AIBAC0KBACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AIBAC0KBACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AIBAC0KBACTestsContainer','ID0AIBAC0KBACcanvas');
+                                </script><tr id="testRow ID0A3BAC05BAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0A3BAC05BAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0A3BAC05BAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0A3BAC05BACTestsContainer','ID0A3BAC05BACButton','ComposeEmail1','ComposeEmail1');">
+                <div class="MoreButtonText testName" id="ID0A3BAC05BACButton">ComposeEmail1</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Inbox, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0A3BAC05BAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.3817070+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0A3BAC05BACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0A3BAC05BACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0A3BAC05BACTestsContainer','ID0A3BAC05BACcanvas');
+                                </script><tr id="testRow ID0AQCAC0SCAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AQCAC0SCAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AQCAC0SCAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AQCAC0SCACTestsContainer','ID0AQCAC0SCACButton','ComposeEmail2','ComposeEmail2');">
+                <div class="MoreButtonText testName" id="ID0AQCAC0SCACButton">ComposeEmail2</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Inbox, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AQCAC0SCAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.4068408+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AQCAC0SCACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AQCAC0SCACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AQCAC0SCACTestsContainer','ID0AQCAC0SCACcanvas');
+                                </script><tr id="testRow ID0AEDAC0GDAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AEDAC0GDAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AEDAC0GDAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AEDAC0GDACTestsContainer','ID0AEDAC0GDACButton','ComposeEmail3','ComposeEmail3');">
+                <div class="MoreButtonText testName" id="ID0AEDAC0GDACButton">ComposeEmail3</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Inbox, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AEDAC0GDAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.4367531+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AEDAC0GDACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.TestCases.Inbox.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AEDAC0GDACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AEDAC0GDACTestsContainer','ID0AEDAC0GDACcanvas');
+                                </script><tr id="testRow ID0AYDAC01DAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AYDAC01DAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AYDAC01DAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AYDAC01DACTestsContainer','ID0AYDAC01DACButton','SeeSentMails1','SeeSentMails1');">
+                <div class="MoreButtonText testName" id="ID0AYDAC01DACButton">SeeSentMails1</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Sent, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AYDAC01DAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.4567511+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AYDAC01DACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AYDAC01DACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AYDAC01DACTestsContainer','ID0AYDAC01DACcanvas');
+                                </script><tr id="testRow ID0AMEAC0OEAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AMEAC0OEAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AMEAC0OEAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AMEAC0OEACTestsContainer','ID0AMEAC0OEACButton','SeeSentMails2','SeeSentMails2');">
+                <div class="MoreButtonText testName" id="ID0AMEAC0OEACButton">SeeSentMails2</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Sent, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AMEAC0OEAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.4737036+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AMEAC0OEACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AMEAC0OEACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AMEAC0OEACTestsContainer','ID0AMEAC0OEACcanvas');
+                                </script><tr id="testRow ID0AAFAC0CFAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AAFAC0CFAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AAFAC0CFAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AAFAC0CFACTestsContainer','ID0AAFAC0CFACButton','SeeSentMails3','SeeSentMails3');">
+                <div class="MoreButtonText testName" id="ID0AAFAC0CFACButton">SeeSentMails3</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Sent, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AAFAC0CFAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.4842061+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AAFAC0CFACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.TestCases.Sent.SetupTests has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AAFAC0CFACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AAFAC0CFACTestsContainer','ID0AAFAC0CFACcanvas');
+                                </script><tr id="testRow ID0AUFAC0WFAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AUFAC0WFAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AUFAC0WFAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AUFAC0WFACTestsContainer','ID0AUFAC0WFACButton','SeeTrashMails1','SeeTrashMails1');">
+                <div class="MoreButtonText testName" id="ID0AUFAC0WFACButton">SeeTrashMails1</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Trash, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AUFAC0WFAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.5147380+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AUFAC0WFACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AUFAC0WFACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AUFAC0WFACTestsContainer','ID0AUFAC0WFACcanvas');
+                                </script><tr id="testRow ID0AIGAC0KGAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AIGAC0KGAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AIGAC0KGAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AIGAC0KGACTestsContainer','ID0AIGAC0KGACButton','SeeTrashMails2','SeeTrashMails2');">
+                <div class="MoreButtonText testName" id="ID0AIGAC0KGACButton">SeeTrashMails2</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Trash, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AIGAC0KGAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.5316879+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AIGAC0KGACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AIGAC0KGACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AIGAC0KGACTestsContainer','ID0AIGAC0KGACcanvas');
+                                </script><tr id="testRow ID0A3GAC05GAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0A3GAC05GAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0A3GAC05GAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0A3GAC05GACTestsContainer','ID0A3GAC05GACButton','SeeTrashMails3','SeeTrashMails3');">
+                <div class="MoreButtonText testName" id="ID0A3GAC05GACButton">SeeTrashMails3</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.TestCases.Trash, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0A3GAC05GAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.5678365+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0A3GAC05GACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0A3GAC05GACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0A3GAC05GACTestsContainer','ID0A3GAC05GACcanvas');
+                                </script><tr id="testRow ID0AQHAC0SHAC" class="hiddenRow test">
+            <th class="column1"><input type="checkbox" class="testCheckbox" onclick="CheckUncheck(&quot;//tr[@id=\&quot;testRow ID0AQHAC0SHAC\&quot;]//input&quot;,&quot;//tr[@id=\&quot;testRow ID0AQHAC0SHAC\&quot;]&quot;)"></th>
+            <td id="rowTestMethod" scope="row" class="column1">
+              <div class="OpenMoreButton" onclick="ShowHide('ID0AQHAC0SHACTestsContainer','ID0AQHAC0SHACButton','TestMethod1','TestMethod1');">
+                <div class="MoreButtonText testName" id="ID0AQHAC0SHACButton">TestMethod1</div>
+              </div>
+            </td>
+            <td id="rowTestClass" class="LongText"><span>ReportGeneration.UnitTest1, ReportGeneration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</span></td>
+            <td id="rowTestCase"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowBug"><span><a target="_blank" href=""></a></span></td>
+            <td id="rowCategories"><span></span></td>
+            <td id="rowErrorMessage" class="LongText">
+              <font size="2">Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.<input id="testRow ID0AQHAC0SHAC comment" class="CommentInput" type="text" style="color: #e60909;"></font>
+            </td>
+            <td id="rowStartTime" class="LongText"><span>2020-12-14T23:42:31.5887815+05:30</span></td>
+            <td id="rowDuration" class="LongText"><span></span></td>
+          </tr>
+          <tr id="ID0AQHAC0SHACTestsContainer" class="hiddenRow">
+            <td colspan="100">
+              <div id="exceptionArrow">↳</div>
+              <table>
+                <thead>
+                  <tr class="odd">
+                    <th scope="col" class="TestsTable" abbr="Status">Status</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Screenshot</th>
+                    <th scope="col" class="TestsTable" abbr="Message" style="width:100%">Log</th>
+                    <th scope="col" class="TestsTable" abbr="Test">Machine</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Test">
+                    <td class="info">OTHER</td>
+                    <th scope="row" class="column1"></th>
+                    <td class="Messages">
+                      <font style="color: #880B0B; background-color: #F3E0E0;" size="2"><b>Method ReportGeneration.Reports.Reporter.StartReporting has wrong signature.  Parameter 1 should be of type Microsoft.VisualStudio.TestTools.UnitTesting.TestContext.</b></font><br></td>
+                    <td>DESKTOP-6ILA6QM</td>
+                  </tr>
+                  <tr id="ID0AQHAC0SHACAllStacktrace" class="hiddenRow">
+                    <td colspan="6">
+                      <div id="exceptionArrow">↳</div>
+                      <table>
+                        <tbody>
+                          <tr class="visibleRow">
+                            <td class="ex" colspan="100">
+                              <pre style="font-size: 12px;">
+                              </pre>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr><script>
+                                    CalculateTestsStatuses('ID0AQHAC0SHACTestsContainer','ID0AQHAC0SHACcanvas');
+                                </script></tbody>
+      </table>
+    </div>
+  </body><script>
+                CalculateTotalPrecents();
+            </script></html>

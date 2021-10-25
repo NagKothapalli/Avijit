@@ -1,0 +1,20 @@
+﻿{
+  "responses": [
+    {
+      "trackingId": "9mmzzd0e-d6ec-4220-b6ec-d341277d58c1",
+      "createdDateUtc": "2021-10-19 20:11:59.706",
+      "contentUrl": "https://ape-cmp.cws.xfinity.com/utility/query?trackingid=9mmzzd0e-d6ec-4220-b6ec-d341277d58c1&messageType=sms",
+      "targetAddresses": [
+        "16362935759"
+      ],
+      "title": "GX - AGENT TRIGGERED Consent Decree - 888d3ff4-0ecd-4b6d-aa60-f7bf353d316a",
+      "subject": "You're almost done completing your order",
+      "accountNumber": "8220177051495144",
+      "templateId": "888d3ff4-0ecd-4b6d-aa60-f7bf353d316a",
+      "messageType": "sms",
+      "appId": "cmp-qa-61eb6079-36d3-499c-998e"
+    }
+  ],
+  "description": "successfully submitted request",
+  "errors": null
+}

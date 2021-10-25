@@ -18,8 +18,7 @@ namespace DDTFrameWork.Framework
         {
            JsonFilePath = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", @"\") + "AppData\\App_"+env+"Data.json";
            data = JsonConvert.DeserializeObject<Data>(File.ReadAllText(JsonFilePath));
-        }
-        
+        }        
         //public RootObject GetTestData()
         //{
         //    root = JsonConvert.DeserializeObject<RootObject>(File.ReadAllText(JsonFilePath));
@@ -32,15 +31,13 @@ namespace DDTFrameWork.Framework
         //}
         //public class RootObject
         //{
-        //    public Data data { get; set; }
-            
+        //    public Data data { get; set; }            
         //}
         public class Data
         {
             public string URL { get; set; }
             public string UserName { get; set; }
             public string PassWord { get; set; }
-        }
-       
+        }       
     }
 }

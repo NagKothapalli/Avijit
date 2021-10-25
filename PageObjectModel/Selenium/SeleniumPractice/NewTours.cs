@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using RestSharp;
@@ -30,6 +31,8 @@ namespace Selenium.SeleniumPractice
         }
         public void LaunchApplication()
         {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
             Debug.WriteLine("RC : Launch Application");
             driver.Navigate().GoToUrl("https://gmail.com");
             PageFactory.InitElements(driver, this);
@@ -49,7 +52,23 @@ namespace Selenium.SeleniumPractice
             // click the "UploadFile" button
             driver.FindElement(By.Name("send")).Click();
         }
-        
+
+        [TestMethod]
+        public string ReadTextFromFile(string filepath)
+        {
+            string text = System.IO.File.ReadAllText(filepath);
+            //string text = System.IO.File.ReadAllText(@"D:\WorkSpace\CsharpGit\PageObjectModel\Selenium.txt");
+            System.Console.WriteLine("Contents of WriteText.txt = {0}", text);
+            return text;
+        }
+        [TestMethod]
+
+        public void EnterTextFromNotePadToApp()
+        {
+            driver.Navigate().GoToUrl("https://google.com");
+            string text = ReadTextFromFile(@"D:\WorkSpace\CsharpGit\PageObjectModel\Selenium.txt");
+            driver.FindElement(By.XPath("//input[@title='Search']")).SendKeys(text);
+        }
         public class Constants
         {
             public const string username = "abc";

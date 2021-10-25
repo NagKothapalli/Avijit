@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace PageObjectModel.TestScenarios
 {   
-   // [TestClass]
+   [TestClass]
     public class TestCases : ReportGenarator
     {
         public IWebDriver driver; //null
@@ -47,6 +47,16 @@ namespace PageObjectModel.TestScenarios
         //   extent = new ExtentReports(AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "") + "\\Reports\\IndividualReports" + new Random().Next(9999) + ".html");
         //}
         //Inbox - 
+        [TestMethod]
+        public void RandoNUmber()
+        {
+           int num =  new Random().Next(0000, 1111) + 11111;
+           string num2 = new Random().Next(0000, 1111)+11111.ToString();
+            Console.WriteLine("New number :" + num);
+            string val = "$12,51.32";
+            //int nval = Int32.Parse(val.Substring(1).Replace(",",""));
+            double nval = Convert.ToDouble(val.Substring(1).Replace(",", ""));
+        }
         [TestMethod] //Test Case / Test Scenario
         public void ComposeAndSendAnEmail()
         {

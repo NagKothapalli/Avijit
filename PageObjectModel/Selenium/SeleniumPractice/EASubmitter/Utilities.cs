@@ -145,7 +145,7 @@ namespace Selenium.SeleniumPractice.EASubmitter
             Assert.AreEqual(MetadataBefore.model.documentDetails.fileName, MetadataAfter[0].documentDetails.fileName);
             Assert.AreEqual("200", MetadataAfter[0].responseDetails.ResponseCode);
             Assert.AreNotEqual(null, MetadataAfter[0].responseDetails.ResponseMessage);
-            Assert.AreEqual(MetadataBefore.model.attachment.payor.masterId, MetadataAfter[0].attachment.payor.masterId);
+            //Assert.AreEqual(MetadataBefore.model.attachment.payor.masterId, MetadataAfter[0].attachment.payor.masterId);
         }
         public void AssertPDFByteStream(string PdfUploaded, IRestResponse response)
         {

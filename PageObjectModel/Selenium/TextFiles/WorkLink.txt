@@ -1,0 +1,31 @@
+{
+  "CMSSettings": {
+    "ExecutionType": "Local",
+    "Browser": "Chrome",
+    "OS": "Win 7",
+    "Environment": "QA"
+  },
+  "Devices": [
+    {
+      "Url": "http://192.168.1.88:8342/q/scene//",
+      "UserName": "auto+callstechviewer@scopeapp.com",
+      "PassWord": "Augment1!",
+      "BadPassword": "abcd",
+      "DeviceType": "Android",
+      "Environment": "QA",
+      "TestingType": "Smoke",
+      "Browser": "Chrome",
+      "APKFilePath": "C:\\Users\\rajit\\Downloads\\WL.APK"
+    },
+    {
+      "Url": "http://192.168.1.95:8342/q/scene//",
+      "UserName": "auto+callsexpertviewer@scopeapp.com",
+      "PassWord": "Augment1!",
+      "DeviceType": "Android",
+      "Environment": "QA",
+      "TestingType": "Smoke",
+      "Browser": "Chrome",
+      "APKFilePath": "C:\\Users\\rajit\\Downloads\\WL.APK"
+    }
+  ]
+}

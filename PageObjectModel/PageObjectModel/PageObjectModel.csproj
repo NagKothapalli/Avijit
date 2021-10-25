@@ -116,6 +116,7 @@
     <Compile Include="AppUtils\DriverSetUp.cs" />
     <Compile Include="GeneralUtils\ReadJsonData.cs" />
     <Compile Include="GeneralUtils\ReportGenarator.cs" />
+    <Compile Include="PageObjects\Home.cs" />
     <Compile Include="PageObjects\Inbox.cs" />
     <Compile Include="PageObjects\Login.cs" />
     <Compile Include="Specflow\Runner.cs" />
@@ -129,7 +130,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Specflow\FeatureFiles\Apsrtc.feature" />
   </ItemGroup>
